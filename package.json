@@ -1,0 +1,8 @@
+{
+  "name": "xapps-site",
+  "private": true,
+  "scripts": {
+    "dev": "bundle exec jekyll serve",
+    "build": "bundle exec jekyll build"
+  }
+}
