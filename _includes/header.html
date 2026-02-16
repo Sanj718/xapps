@@ -1,8 +1,11 @@
 <header>
   <a href="{{ '/' | relative_url }}" class="logo"><span class="logo-x">x</span>apps</a>
-  <!-- <span class="nav-sep">|</span> -->
-  <nav>
-    <a href="{{ '/docs.html' | relative_url }}">docs</a>
-    <a href="mailto:support@xapps.io">contact</a>
-  </nav>
+  <div class="header-right">
+    <nav>
+      <a href="{{ '/docs.html' | relative_url }}">docs</a>
+      <a href="{{ '/contact.html' | relative_url }}">contact</a>
+    </nav>
+    <span class="nav-sep">⁕</span>
+    <button type="button" class="theme-toggle" aria-label="Switch to night mode" title="Switch to night mode">☾</button>
+  </div>
 </header>

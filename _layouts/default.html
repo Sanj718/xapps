@@ -5,14 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+  
+  <script>
+    (function(){var t=localStorage.getItem('theme');if(t==='night')document.documentElement.setAttribute('data-theme','night');})();
+  </script>
 </head>
 <body>
   {% include header.html %}
 
-  {% include globe.html %}
-
   <main{% if page.main_class %} class="{{ page.main_class }}"{% endif %}>
     {{ content }}
   </main>
+  <script src="{{ '/js/theme.js' | relative_url }}"></script>
 </body>
 </html>

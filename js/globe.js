@@ -1,20 +1,14 @@
-/**
- * ASCII Globe - JavaScript port of adamsky/globe
- * https://github.com/adamsky/globe
- * Rendering math based on C++ code by DinoZ1729
- */
-
 (function () {
   var PI = Math.PI;
 
   // --- Texture ---
   function parseTexture(text) {
-    var lines = text.split('\n');
+    var lines = text.split("\n");
     var day = [];
     for (var i = 0; i < lines.length; i++) {
       if (lines[i].length === 0) continue;
       // Original reverses each row
-      day.push(lines[i].split('').reverse());
+      day.push(lines[i].split("").reverse());
     }
     return day;
   }
@@ -24,12 +18,16 @@
     var tx = v[0] * m[0] + v[1] * m[4] + v[2] * m[8] + m[12];
     var ty = v[0] * m[1] + v[1] * m[5] + v[2] * m[9] + m[13];
     var tz = v[0] * m[2] + v[1] * m[6] + v[2] * m[10] + m[14];
-    v[0] = tx; v[1] = ty; v[2] = tz;
+    v[0] = tx;
+    v[1] = ty;
+    v[2] = tz;
   }
 
   function normalize(v) {
     var len = Math.sqrt(v[0] * v[0] + v[1] * v[1] + v[2] * v[2]);
-    v[0] /= len; v[1] /= len; v[2] /= len;
+    v[0] /= len;
+    v[1] /= len;
+    v[2] /= len;
   }
 
   function dot(a, b) {
@@ -39,18 +37,31 @@
   // --- Camera ---
   // Matches adamsky/globe Camera::update exactly
   function buildCamera(r, alpha, beta) {
-    var sinA = Math.sin(alpha), cosA = Math.cos(alpha);
-    var sinB = Math.sin(beta), cosB = Math.cos(beta);
+    var sinA = Math.sin(alpha),
+      cosA = Math.cos(alpha);
+    var sinB = Math.sin(beta),
+      cosB = Math.cos(beta);
     var x = r * cosA * cosB;
     var y = r * sinA * cosB;
     var z = r * sinB;
     // Column-major 4x4 matrix, same layout as the Rust code
     var matrix = new Float32Array(16);
-    matrix[3] = 0; matrix[7] = 0; matrix[11] = 0; matrix[15] = 1;
-    matrix[0] = -sinA;        matrix[1] = cosA;         matrix[2] = 0;
-    matrix[4] = cosA * sinB;  matrix[5] = sinA * sinB;  matrix[6] = -cosB;
-    matrix[8] = cosA * cosB;  matrix[9] = sinA * cosB;  matrix[10] = sinB;
-    matrix[12] = x;           matrix[13] = y;           matrix[14] = z;
+    matrix[3] = 0;
+    matrix[7] = 0;
+    matrix[11] = 0;
+    matrix[15] = 1;
+    matrix[0] = -sinA;
+    matrix[1] = cosA;
+    matrix[2] = 0;
+    matrix[4] = cosA * sinB;
+    matrix[5] = sinA * sinB;
+    matrix[6] = -cosB;
+    matrix[8] = cosA * cosB;
+    matrix[9] = sinA * cosB;
+    matrix[10] = sinB;
+    matrix[12] = x;
+    matrix[13] = y;
+    matrix[14] = z;
     return { x: x, y: y, z: z, matrix: matrix };
   }
 
@@ -81,12 +92,14 @@
     for (var row = 0; row < rows; row++) {
       for (var col = 0; col < cols; col++) {
         // Camera origin
-        var ox = cam.x, oy = cam.y, oz = cam.z;
+        var ox = cam.x,
+          oy = cam.y,
+          oz = cam.z;
 
         // Ray direction (matches original normalization)
         var u = [
-          -((col - halfCols) + 0.5) / halfCols,
-          ((row - halfRows) + 0.5) / halfRows,
+          -(col - halfCols + 0.5) / halfCols,
+          (row - halfRows + 0.5) / halfRows,
           -1
         ];
 
@@ -128,32 +141,111 @@
 
   // --- Main ---
   function createGlobe(element, textureUrl) {
-    var pre = document.createElement('pre');
+    var pre = document.createElement("pre");
     pre.style.cssText =
-      'margin:0;padding:0;overflow:hidden;position:relative;' +
-      'font-family:monospace;line-height:1.15;letter-spacing:0;' +
-      'color:#000;background:#fafafa;border-radius:1rem;' +
-      'display:flex;align-items:center;justify-content:center;';
+      "margin:0;padding:0;overflow:hidden;position:relative;" +
+      "font-family:monospace;line-height:1.15;letter-spacing:0;" +
+      "border-radius:1rem;display:flex;align-items:center;justify-content:center;";
+    pre.className = "globe-pre";
     element.appendChild(pre);
 
-    function addStar(char, top, right, bottom, left) {
-      var el = document.createElement('span');
-      el.textContent = char;
-      el.style.cssText =
-        'position:absolute;font-size:1.5em;line-height:1;pointer-events:none;' +
-        'transform-origin:center;animation:starPulse 2s ease-in-out infinite;';
-      if (top !== undefined) el.style.top = top + '%';
-      if (right !== undefined) el.style.right = right + '%';
-      if (bottom !== undefined) el.style.bottom = bottom + '%';
-      if (left !== undefined) el.style.left = left + '%';
-      element.appendChild(el);
+    /**
+     * Returns a random percentage between min and max.
+     */
+    function randomPct(min, max) {
+      return min + Math.random() * (max - min);
     }
-    addStar('✹', 5, 20);
-    addStar('✸', undefined, undefined, 10, 10);
-    addStar('✷', 18, 5);
-    addStar('✶', 12, undefined, undefined, 10);
-    // addStar('✵', undefined, undefined, 50, 27);
-    addStar('✴', 70, 10);
+
+    /**
+     * Returns random top/left (in %) outside the central globe circle so stars never overlap it.
+     * Center at 50%, 50%; exclusion radius in % (globe is roughly central).
+     */
+    var globeCenterX = 50;
+    var globeCenterY = 50;
+    var globeExclusionRadius = 32;
+
+    function randomPositionOutsideGlobe() {
+      var top, left, dx, dy, distSq, r2;
+      r2 = globeExclusionRadius * globeExclusionRadius;
+      do {
+        top = randomPct(2, 98);
+        left = randomPct(2, 98);
+        dx = left - globeCenterX;
+        dy = top - globeCenterY;
+        distSq = dx * dx + dy * dy;
+      } while (distSq < r2);
+      return { top: top, left: left };
+    }
+
+    /** Duration (s) for one star pulse. */
+    var starDuration = 7;
+
+    function createStarElement() {
+      var el = document.createElement("span");
+      el.className = "globe-star";
+      el.style.cssText =
+        "position:absolute;font-size:1.5em;line-height:1;pointer-events:none;" +
+        "transform-origin:center;opacity:0;transition:none;";
+      el.addEventListener("animationend", function () {
+        el.style.opacity = "0";
+      });
+      return el;
+    }
+
+    /**
+     * Creates an independent star set: own slots (random positions outside globe), two elements, 50% overlap.
+     */
+    function createStarSet(chars, numSlots) {
+      var starSlots = [];
+      for (var i = 0; i < numSlots; i++) {
+        var pos = randomPositionOutsideGlobe();
+        starSlots.push({
+          char: chars[i % chars.length],
+          top: pos.top,
+          left: pos.left
+        });
+      }
+      var starElements = [createStarElement(), createStarElement()];
+      starElements.forEach(function (el) {
+        element.appendChild(el);
+      });
+      var currentStarIndex = 0;
+      var nextStarTimeoutId = null;
+      var activeStarElIndex = 0;
+
+      function showNextStar() {
+        if (nextStarTimeoutId != null) {
+          clearTimeout(nextStarTimeoutId);
+          nextStarTimeoutId = null;
+        }
+        var starEl = starElements[activeStarElIndex];
+        var slot = starSlots[currentStarIndex];
+        starEl.textContent = slot.char;
+        starEl.style.top = slot.top + "%";
+        starEl.style.left = slot.left + "%";
+        starEl.style.opacity = "1";
+        starEl.style.animation = "none";
+        starEl.offsetHeight;
+        starEl.style.animation =
+          "starPulse " + starDuration + "s ease-in-out 1";
+        currentStarIndex = (currentStarIndex + 1) % starSlots.length;
+        activeStarElIndex = 1 - activeStarElIndex;
+        nextStarTimeoutId = setTimeout(function () {
+          nextStarTimeoutId = null;
+          showNextStar();
+        }, starDuration * 500);
+      }
+
+      return { start: showNextStar };
+    }
+
+    var starSet1 = createStarSet(["✴", "✴", "✶", "✴"], 8);
+    var starSet2 = createStarSet(["✶", "✴", "✴", "✴"], 8);
+    var starSet2DelayMs = 1500;
+    starSet1.start();
+    setTimeout(function () {
+      starSet2.start();
+    }, starSet2DelayMs);
 
     // Globe parameters (matches adamsky defaults)
     var radius = 1;
@@ -189,7 +281,7 @@
       var coords = getPointerCoords(e);
       lastX = coords.x;
       lastY = coords.y;
-      element.style.cursor = 'grabbing';
+      element.style.cursor = "grabbing";
     }
 
     function onPointerMove(e) {
@@ -204,21 +296,25 @@
 
     function onPointerUp() {
       isDragging = false;
-      element.style.cursor = 'grab';
+      element.style.cursor = "grab";
     }
 
-    element.style.cursor = 'grab';
-    element.style.userSelect = 'none';
-    element.addEventListener('mousedown', onPointerDown);
-    element.addEventListener('touchstart', onPointerDown, { passive: true });
-    element.addEventListener('mousemove', onPointerMove);
-    element.addEventListener('touchmove', function (e) {
-      onPointerMove(e);
-      if (isDragging) e.preventDefault();
-    }, { passive: false });
-    element.addEventListener('mouseup', onPointerUp);
-    element.addEventListener('touchend', onPointerUp);
-    element.addEventListener('mouseleave', onPointerUp);
+    element.style.cursor = "grab";
+    element.style.userSelect = "none";
+    element.addEventListener("mousedown", onPointerDown);
+    element.addEventListener("touchstart", onPointerDown, { passive: true });
+    element.addEventListener("mousemove", onPointerMove);
+    element.addEventListener(
+      "touchmove",
+      function (e) {
+        onPointerMove(e);
+        if (isDragging) e.preventDefault();
+      },
+      { passive: false }
+    );
+    element.addEventListener("mouseup", onPointerUp);
+    element.addEventListener("touchend", onPointerUp);
+    element.addEventListener("mouseleave", onPointerUp);
 
     function computeGrid() {
       var w = element.offsetWidth;
@@ -245,30 +341,40 @@
 
     function render() {
       var grid = computeGrid();
-      pre.style.width = grid.w + 'px';
-      pre.style.height = grid.h + 'px';
-      pre.style.fontSize = grid.fontSize + 'px';
+      pre.style.width = grid.w + "px";
+      pre.style.height = grid.h + "px";
+      pre.style.fontSize = grid.fontSize + "px";
 
       var cam = buildCamera(camZoom, camXY, camZ);
       var output = [];
       for (var i = 0; i < grid.rows; i++) {
         output[i] = [];
         for (var j = 0; j < grid.cols; j++) {
-          output[i][j] = ' ';
+          output[i][j] = " ";
         }
       }
 
-      renderGlobe(texture, output, radius, globeAngle, cam, grid.cols, grid.rows);
+      renderGlobe(
+        texture,
+        output,
+        radius,
+        globeAngle,
+        cam,
+        grid.cols,
+        grid.rows
+      );
 
       var lines = [];
       for (var r = 0; r < grid.rows; r++) {
-        lines[r] = output[r].join('');
+        lines[r] = output[r].join("");
       }
-      pre.textContent = lines.join('\n');
+      pre.textContent = lines.join("\n");
     }
 
     fetch(textureUrl)
-      .then(function (r) { return r.text(); })
+      .then(function (r) {
+        return r.text();
+      })
       .then(function (text) {
         texture = parseTexture(text);
 
@@ -287,18 +393,18 @@
         animate();
       })
       .catch(function () {
-        pre.textContent = 'Failed to load Earth texture.';
+        pre.textContent = "Failed to load Earth texture.";
       });
 
-    window.addEventListener('resize', function () {
+    window.addEventListener("resize", function () {
       if (texture) render();
     });
   }
 
   // Boot
-  var container = document.getElementById('globe-container');
+  var container = document.getElementById("globe-container");
   if (container) {
-    var url = container.dataset.textureUrl || '/textures/earth.txt';
+    var url = container.dataset.textureUrl || "/textures/earth.txt";
     createGlobe(container, url);
   }
 })();

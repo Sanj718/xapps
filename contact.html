@@ -1,0 +1,112 @@
+---
+title: Contact
+layout: default
+main_class: contact
+---
+
+<section class="contact-section">
+  <div class="contact-section__content">
+    <h1>Contact</h1>
+    <p>Send a message and we’ll get back to you.</p>
+
+    <form id="form" class="contact-form">
+      <div class="contact-form__field">
+        <label for="contact-name">Name</label>
+        <input
+          id="contact-name"
+          type="text"
+          name="name"
+          required
+          autocomplete="name"
+        />
+      </div>
+      <div class="contact-form__field">
+        <label for="contact-email">Email</label>
+        <input
+          id="contact-email"
+          type="email"
+          name="email"
+          required
+          autocomplete="email"
+        />
+      </div>
+      <div class="contact-form__field">
+        <label for="contact-message">Message</label>
+        <textarea
+          id="contact-message"
+          name="message"
+          rows="5"
+          required
+        ></textarea>
+      </div>
+      <button type="submit" class="contact-form__submit">Send</button>
+      <p id="form-status" class="contact-form__status" aria-live="polite"></p>
+    </form>
+  </div>
+  <div
+    class="contact-section__image"
+    id="contact-canvas"
+    data-title="Hi !  : )"
+    data-text="How can we help you ? ||| Let's talk ! ||| What's on your mind ? ||| What do you need help with ? ||| Send us a message !"
+    data-repeat
+    aria-hidden="true"
+  ></div>
+</section>
+<script type="importmap">
+  {
+    "imports": {
+      "figlet": "https://unpkg.com/figlet@1.10.0/dist/figlet.mjs"
+    }
+  }
+</script>
+<script
+  type="module"
+  src="{{ '/js/contact-canvas.js' | relative_url }}"
+></script>
+<script>
+  (function () {
+    var form = document.getElementById("form");
+    if (!form) return;
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var statusEl = document.getElementById("form-status");
+
+    function setStatus(text, isError) {
+      statusEl.textContent = text;
+      statusEl.className = "contact-form__status" + (isError ? " contact-form__status--error" : "");
+    }
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      var formData = new FormData(form);
+      formData.append("access_key", "093dd769-eeb6-4dd3-a083-258f3d4e4d18");
+
+      var originalText = submitBtn.textContent;
+
+      submitBtn.textContent = "Sending...";
+      submitBtn.disabled = true;
+      setStatus("");
+
+      try {
+        var response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formData,
+        });
+
+        var data = await response.json();
+
+        if (response.ok) {
+          setStatus("Your message has been sent.");
+          form.reset();
+        } else {
+          setStatus("Error: " + (data.message || "Something went wrong."), true);
+        }
+      } catch (error) {
+        setStatus("Something went wrong. Please try again.", true);
+      } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  })();
+</script>
