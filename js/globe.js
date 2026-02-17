@@ -318,7 +318,7 @@
 
     function computeGrid() {
       var w = element.offsetWidth;
-      var h = Math.min(400, window.innerHeight * 0.5);
+      var h = element.offsetHeight || 400;
 
       // Determine rows from height, cols = 2*rows for circular globe
       // (monospace chars are ~2:1 height:width)

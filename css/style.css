@@ -155,8 +155,17 @@ nav a:hover {
 #globe-container {
   position: relative;
   width: 100%;
+  height: min(50svh, 400px);
+  min-height: min(50svh, 400px);
   border-radius: 12px;
   overflow: hidden;
+}
+
+@supports not (height: 1svh) {
+  #globe-container {
+    height: min(50vh, 400px);
+    min-height: min(50vh, 400px);
+  }
 }
 
 .globe-pre {
