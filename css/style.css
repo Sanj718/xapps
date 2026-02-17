@@ -274,12 +274,21 @@ main.contact p {
   color: var(--color-muted);
 }
 
+.docs{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .contact-section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   align-items: stretch;
   min-height: 400px;
+}
+
+.contact-section__content{
+  padding-left: 1rem;
 }
 
 .contact-section__image {
@@ -396,6 +405,10 @@ html[data-theme="night"] .contact-form__hint code {
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   padding: 2rem 0;
+}
+
+.geo-flow-description__content{
+  padding-left: 1rem;
 }
 
 
