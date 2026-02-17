@@ -144,7 +144,7 @@
     var pre = document.createElement("pre");
     pre.style.cssText =
       "margin:0;padding:0;overflow:hidden;position:relative;" +
-      "font-family:monospace;line-height:1.15;letter-spacing:0;" +
+      "font-family:monospace;line-height:1.25;letter-spacing:0;" +
       "border-radius:1rem;display:flex;align-items:center;justify-content:center;";
     pre.className = "globe-pre";
     element.appendChild(pre);
@@ -321,19 +321,20 @@
       var h = element.offsetHeight || 400;
 
       // Determine rows from height, cols = 2*rows for circular globe
-      // (monospace chars are ~2:1 height:width)
+      // (monospace chars are ~2:1 height:width; 1.25 line-height for iOS)
       var rows = 36;
       var cols = rows * 2;
+      var lineHeight = 1.25;
 
       // Font size to fill container height
-      var fontSize = h / (rows * 1.15);
+      var fontSize = h / (rows * lineHeight);
 
       // Check if cols fit the width; if not, shrink
       var charW = fontSize * 0.6;
       if (cols * charW > w) {
         cols = Math.floor(w / charW);
         rows = Math.floor(cols / 2);
-        fontSize = h / (rows * 1.15);
+        fontSize = h / (rows * lineHeight);
       }
 
       return { cols: cols, rows: rows, fontSize: fontSize, w: w, h: h };
