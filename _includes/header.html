@@ -1,11 +1,27 @@
 <header>
-  <a href="{{ '/' | relative_url }}" class="logo"><span class="logo-x">x</span>apps</a>
+  <a href="{{ '/' | relative_url }}" class="logo"
+    ><img
+      src="{{ '/assets/logo.svg' | relative_url }}"
+      alt="x apps"
+      class="logo__img"
+      width="18"
+      height="18"
+    />
+    apps</a
+  >
   <div class="header-right">
     <nav>
       <a href="{{ '/docs.html' | relative_url }}">docs</a>
       <a href="{{ '/contact.html' | relative_url }}">contact</a>
     </nav>
     <span class="nav-sep">⁕</span>
-    <button type="button" class="theme-toggle" aria-label="Switch to night mode" title="Switch to night mode">☾</button>
+    <button
+      type="button"
+      class="theme-toggle"
+      aria-label="Switch to night mode"
+      title="Switch to night mode"
+    >
+      ☾
+    </button>
   </div>
 </header>
