@@ -1,2 +1,5 @@
 title: xapps
 description: Simple Shopify apps built for real merchants.
+
+# Google Analytics (GA4). Measurement ID from Data Streams > Web
+google_analytics: G-449430856
