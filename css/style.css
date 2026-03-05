@@ -133,7 +133,7 @@ nav a:hover {
 .trust-badge {
   max-width: 1024px;
   margin: 0 auto;
-  padding: 1rem 1rem 0.5rem;
+  padding: 0 1rem 0.5rem;
   text-align: center;
 }
 
@@ -149,6 +149,7 @@ nav a:hover {
   opacity: 0.6;
   margin-top: 0.2rem;
 }
+
 
 #globe-section {
   max-width: 1024px;
