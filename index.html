@@ -3,6 +3,11 @@ title:
 layout: default
 ---
 
+<div class="trust-badge">
+  <p class="trust-badge__line">Trusted by 1,000+ Shopify merchants</p>
+  <p class="trust-badge__sub">White-glove setup &middot; Support that cares</p>
+</div>
+
 {% include globe.html %}
 
 <section class="geo-flow-description">
@@ -32,7 +37,7 @@ layout: default
         time. Automatic geo-redirects, country selectors, and Shopify Markets
         integration - built to maximize multi-market conversions.
       </p>
-      <a href="https://apps.shopify.com/native-geo-redirects-popup" class="geo-flow-install">Install App</a>
+      <a href="https://apps.shopify.com/native-geo-redirects-popup" target="_blank" class="geo-flow-install">Install App</a>
     </article>
   </div>
 
@@ -43,14 +48,46 @@ layout: default
 
 <section class="brands">
   <h2 class="brands__heading">Trusted by</h2>
-  <div class="brands__row">
-    <span class="brands__item">Acme Co</span>
-    <span class="brands__item">Northwind</span>
-    <span class="brands__item">Globex</span>
-    <span class="brands__item">Initech</span>
-    <span class="brands__item">Umbrella</span>
-    <span class="brands__item">Stark Ltd</span>
-  </div>
+  <scroll-carousel>
+    <div class="brands__row" slot="track">
+      <span class="brands__item" title="JB Hi-Fi"><img src="/assets/brands/brand-jb-hifi.svg" alt="JB Hi-Fi"></span>
+      <span class="brands__item" title="Arizona Beverages"><img src="/assets/brands/brand-arizona.webp" alt="Arizona Beverages"></span>
+      <span class="brands__item" title="Megadeth"><img src="/assets/brands/brand-megadeth.png" alt="Megadeth"></span>
+      <span class="brands__item" title="Scarpa"><img src="/assets/brands/brand-scarpa.svg" alt="Scarpa"></span>
+      <span class="brands__item" title="Tru Niagen"><img src="/assets/brands/brand-truniagen.svg" alt="Tru Niagen"></span>
+      <span class="brands__item" title="General Pants Co."><img src="/assets/brands/brand-general-pants.svg" alt="General Pants Co." style="filter: brightness(0.2)"></span>
+      <span class="brands__item" title="Stoov"><img src="/assets/brands/brand-stoov.svg" alt="Stoov"></span>
+      <span class="brands__item" title="AeroPress"><img src="/assets/brands/brand-aeropress.svg" alt="AeroPress"></span>
+      <span class="brands__item" title="oh snap"><img src="/assets/brands/brand-ohsnap.png" alt="oh snap"></span>
+      <span class="brands__item" title="madhappy"><img src="/assets/brands/brand-madhappy.svg" alt="madhappy"></span>
+      <span class="brands__item" title="Boathouse"><img src="/assets/brands/brand-boathouse.png" alt="Boathouse"></span>
+      <span class="brands__item" title="Buttonscarves"><img src="/assets/brands/brand-Buttonscarves.jpeg" alt="Buttonscarves"></span>
+      <span class="brands__item" title="nobltravel"><img src="/assets/brands/brand-nobtravel.svg" alt="nobltravel"></span>
+      <span class="brands__item" title="Pulsetto"><img src="/assets/brands/brand-pulsetto.png" alt="Pulsetto"></span>
+      <span class="brands__item" title="Kuvings"><img src="/assets/brands/brand-kuvings.png" alt="Kuvings"></span>
+      <span class="brands__item" title="Moeflavor"><img src="/assets/brands/brand-moefover.png" alt="Moeflavor"></span>
+      <span class="brands__item" title="Sunday golf"><img src="/assets/brands/brand-sundaygolf.png" alt="Sunday golf"></span>
+      <span class="brands__item" title="Crossrope"><img src="/assets/brands/brand-crossrope.svg" alt="Crossrope"></span>
+      <span class="brands__item" title="frankie4"><img src="/assets/brands/brand-frankie4.png" alt="frankie4"></span>
+      <span class="brands__item" title="Momotaro Jeans"><img src="/assets/brands/brand-momotaro.svg" alt="Momotaro Jeans"></span>
+      <span class="brands__item" title="LOULOU LOLLIPOP"><img src="/assets/brands/brand-LOULOU.png" alt="LOULOU LOLLIPOP"></span>
+      <span class="brands__item" title="Nurosym"><img src="/assets/brands/brand-nurosym.svg" alt="Nurosym"></span>
+      <span class="brands__item" title="The Scent Reserve"><img src="/assets/brands/brand-scentreserve.png" alt="The Scent Reserve"></span>
+      <span class="brands__item" title="Foil Drive"><img src="/assets/brands/brand-foildrive.png" alt="Foil Drive"></span>
+      <span class="brands__item" title="Protein.com"><img src="/assets/brands/brand-protein.png" alt="Protein.com"></span>
+      <span class="brands__item" title="Rove Lab"><img src="/assets/brands/brand-rovelab.png" alt="Rove Lab"></span>
+      <span class="brands__item" title="Creepers socks"><img src="/assets/brands/brand-creeperssocks.png" alt="Creepers socks"></span>
+      <span class="brands__item" title="JADE store"><img src="/assets/brands/brand-jadestore.png" alt="JADE store"></span>
+    </div>
+    <div class="brands__nav">
+      <button class="reviews__arrow" data-dir="left" aria-label="Previous">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="18" height="18" fill="currentColor"><path fill-rule="evenodd" d="M12.707 4.293a1 1 0 0 1 0 1.414L8.414 10l4.293 4.293a1 1 0 0 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 0 1 1.414 0Z"/></svg>
+      </button>
+      <button class="reviews__arrow" data-dir="right" aria-label="Next">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="18" height="18" fill="currentColor"><path fill-rule="evenodd" d="M7.293 4.293a1 1 0 0 1 1.414 0l5 5a1 1 0 0 1 0 1.414l-5 5a1 1 0 0 1-1.414-1.414L11.586 10 7.293 5.707a1 1 0 0 1 0-1.414Z"/></svg>
+      </button>
+    </div>
+  </scroll-carousel>
 </section>
 
 <section class="features">
@@ -58,28 +95,28 @@ layout: default
   <div class="features__grid">
     <div class="features__card">
       <div class="features__icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="28" height="28" fill="currentColor"><path d="M3 3h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm0 2v10h14V5H3Zm2 2h10v2H5V7Zm0 4h6v2H5v-2Z"/></svg>
+        <i data-lucide="earth"></i>
       </div>
       <h3 class="features__title">Custom Widget Redirects</h3>
       <p class="features__desc">Overlay popup with redirect buttons. Customize colors, fonts, and layout. Control display frequency, geo targeting by country or continent, and advanced JS-based display rules.</p>
     </div>
     <div class="features__card">
       <div class="features__icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="28" height="28" fill="currentColor"><path d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm-1 3.5a1 1 0 1 1 2 0v4.793l2.354 2.353a1 1 0 0 1-1.415 1.414l-2.646-2.646A1 1 0 0 1 9 10.5v-5Z"/></svg>
+        <i data-lucide="route"></i>
       </div>
       <h3 class="features__title">Custom Auto Redirects</h3>
       <p class="features__desc">Automatic URL redirects with no popup shown. Configure custom destinations, redirect frequency, geo targeting, UTM parameters, and Google Analytics event tracking.</p>
     </div>
     <div class="features__card">
       <div class="features__icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="28" height="28" fill="currentColor"><path d="M3 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4Zm1 5a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H4Zm8 0a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1h-4Z"/></svg>
+        <i data-lucide="store"></i>
       </div>
       <h3 class="features__title">Markets Widget Redirects</h3>
       <p class="features__desc">Overlay popup powered by Shopify Markets. Syncs markets data automatically. Full appearance customization, geo targeting, and advanced display rules for widgets and items.</p>
     </div>
     <div class="features__card">
       <div class="features__icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="28" height="28" fill="currentColor"><path d="M3 3a1 1 0 0 1 1 1v10h13a1 1 0 1 1 0 2H3.5A1.5 1.5 0 0 1 2 14.5V4a1 1 0 0 1 1-1Zm3 10V9a1 1 0 1 1 2 0v4H6Zm4 0V7a1 1 0 1 1 2 0v6h-2Zm4 0V5a1 1 0 1 1 2 0v8h-2Z"/></svg>
+        <i data-lucide="arrow-right-left"></i>
       </div>
       <h3 class="features__title">Markets Auto Redirects</h3>
       <p class="features__desc">Automatic URL redirects powered by Shopify Markets. Syncs markets data, geo-based targeting with country skip options, UTM parameters, and Google Analytics event tracking.</p>
@@ -94,7 +131,7 @@ layout: default
         const track = this.querySelector('[slot=track]') || this.firstElementChild;
         const left = this.querySelector('[data-dir=left]');
         const right = this.querySelector('[data-dir=right]');
-        const step = () => track.querySelector('.reviews__card')?.offsetWidth + 24 || 300;
+        const step = () => (track.querySelector('.reviews__card') || track.querySelector('.brands__item'))?.offsetWidth + 16 || 300;
 
         left?.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
         right?.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));

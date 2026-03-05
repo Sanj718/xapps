@@ -34,10 +34,12 @@
   <script>
     (function(){var t=localStorage.getItem('theme');if(t==='night')document.documentElement.setAttribute('data-theme','night');})();
   </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
   {% include header.html %}
 
+  {% assign cat_icons = "Getting Started:rocket,Custom Redirects:earth,Markets Redirects:store,Configuration:settings,Plans:credit-card,FAQ:help-circle,Developers:code-xml" | split: "," %}
   <main class="docs-layout">
     <aside class="docs-sidebar">
       <details class="docs-sidebar__mobile-toggle">
@@ -47,7 +49,7 @@
           {% assign categories = sorted_docs | map: "category" | uniq %}
           {% for cat in categories %}
           <div class="docs-sidebar__group">
-            <span class="docs-sidebar__category">{{ cat }}</span>
+            <span class="docs-sidebar__category">{% for ci in cat_icons %}{% assign pair = ci | split: ":" %}{% if pair[0] == cat %}<i data-lucide="{{ pair[1] }}" class="docs-sidebar__icon"></i>{% endif %}{% endfor %} {{ cat }}</span>
             <ul>
               {% for doc in sorted_docs %}
                 {% if doc.category == cat %}
@@ -62,7 +64,7 @@
       <nav class="docs-sidebar__nav docs-sidebar__nav--desktop">
         {% for cat in categories %}
         <div class="docs-sidebar__group">
-          <span class="docs-sidebar__category">{{ cat }}</span>
+          <span class="docs-sidebar__category">{% for ci in cat_icons %}{% assign pair = ci | split: ":" %}{% if pair[0] == cat %}<i data-lucide="{{ pair[1] }}" class="docs-sidebar__icon"></i>{% endif %}{% endfor %} {{ cat }}</span>
           <ul>
             {% for doc in sorted_docs %}
               {% if doc.category == cat %}
@@ -76,11 +78,42 @@
     </aside>
 
     <article class="docs-content">
-      <h1>{{ page.title }}</h1>
+      <div class="docs-content__header">
+        <h1>{% if page.icon %}<i data-lucide="{{ page.icon }}" class="docs-content__title-icon"></i> {% endif %}{{ page.title }}</h1>
+        {% if page.category == "Developers" %}
+        {% assign raw_filename = page.name %}
+        <a href="{{ '/raw/docs/' | append: raw_filename | relative_url }}" class="docs-content__raw" title="Open as markdown" target="_blank" rel="noopener">.md<i data-lucide="external-link" class="docs-content__raw-icon"></i>
+        </a>
+        {% endif %}
+      </div>
       {{ content }}
     </article>
   </main>
 
   <script src="{{ '/js/theme.js' | relative_url }}"></script>
+  <script>
+  (function(){
+    document.querySelectorAll('.docs-content pre').forEach(function(pre){
+      var btn=document.createElement('button');
+      btn.className='copy-btn';
+      btn.setAttribute('aria-label','Copy to clipboard');
+      btn.innerHTML='<i data-lucide="copy"></i>';
+      btn.addEventListener('click',function(){
+        var code=pre.querySelector('code');
+        var text=code?code.textContent:pre.textContent;
+        navigator.clipboard.writeText(text).then(function(){
+          btn.innerHTML='<i data-lucide="check"></i>';
+          lucide.createIcons({nodes:[btn]});
+          setTimeout(function(){
+            btn.innerHTML='<i data-lucide="copy"></i>';
+            lucide.createIcons({nodes:[btn]});
+          },1500);
+        });
+      });
+      pre.appendChild(btn);
+    });
+    lucide.createIcons();
+  })();
+  </script>
 </body>
 </html>
