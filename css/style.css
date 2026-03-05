@@ -150,7 +150,6 @@ nav a:hover {
   margin-top: 0.2rem;
 }
 
-
 #globe-section {
   max-width: 1024px;
   margin: 0 auto;
@@ -250,11 +249,54 @@ h2 {
   margin-bottom: 1rem;
 }
 
+.geo-flow-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  /* align-items: center; */
+}
+
 .geo-flow-heading {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.geo-flow-badge-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.geo-flow-badge {
+  height: 40px;
+  display: block;
+}
+
+.geo-flow-badge-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  animation: badgeShine 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes badgeShine {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 .geo-flow-subheading {
@@ -1168,6 +1210,10 @@ scroll-carousel {
 }
 
 @media (max-width: 767px) {
+  .geo-flow-badge {
+    height: 30px;
+  }
+
   header {
     padding: 1.5rem 1.5rem 1rem;
   }
