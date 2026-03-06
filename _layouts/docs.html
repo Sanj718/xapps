@@ -112,6 +112,15 @@
       });
       pre.appendChild(btn);
     });
+    // Anchor links on headings
+    document.querySelectorAll('.docs-content h2[id], .docs-content h3[id], .docs-content h4[id]').forEach(function(heading){
+      var a=document.createElement('a');
+      a.className='heading-anchor';
+      a.href='#'+heading.id;
+      a.setAttribute('aria-label','Link to '+heading.textContent);
+      a.textContent='#';
+      heading.appendChild(a);
+    });
     lucide.createIcons();
   })();
   </script>
