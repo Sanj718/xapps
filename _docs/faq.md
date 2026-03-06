@@ -5,7 +5,7 @@ order: 11
 layout: docs
 ---
 
-Common questions and troubleshooting tips for xapps Geo Redirects.
+Common questions and troubleshooting tips for Geolocation Flow.
 
 ## Widget Not Showing
 
@@ -22,13 +22,13 @@ Common questions and troubleshooting tips for xapps Geo Redirects.
 
 **The app detects my country incorrectly.**
 
-IP-based geolocation is accurate for most visitors but can be incorrect for:
+Shopify's built-in geolocation detection is accurate for most visitors but can be incorrect for:
 
 - Visitors using a **VPN or proxy** — the detected country matches the VPN server, not the visitor's actual location
 - Visitors on **certain mobile networks** — some carriers route traffic through centralized servers in other regions
 - **Corporate networks** — traffic may exit through a gateway in a different country
 
-This is a known limitation of IP-based geolocation and cannot be resolved by the app. Use the **Geo Simulator** (`?xgeo-sim=1`) to test specific countries without relying on your actual IP.
+This is a known limitation of geolocation detection and cannot be resolved by the app. Use the **Geo Simulator** (`?xgeo-sim=1`) to test specific countries.
 
 ## Redirect Loops
 
@@ -43,7 +43,7 @@ This is a known limitation of IP-based geolocation and cannot be resolved by the
 
 **Search engine bots are being redirected.**
 
-xapps includes built-in bot detection that prevents bots from being redirected. The default pattern covers major bots:
+Geolocation Flow includes built-in bot detection that prevents bots from being redirected. The default pattern covers major bots:
 
 ```
 bot|adsbot|googlebot|crawler|spider|robot|crawling|slurp
@@ -53,9 +53,9 @@ If a specific bot is still being redirected, add its user-agent string to the bo
 
 ## Markets Sync
 
-**My Shopify Markets data isn't showing up in xapps.**
+**My Shopify Markets data isn't showing up in Geolocation Flow.**
 
-1. Click the **Sync** button in the xapps dashboard to pull the latest Markets data
+1. Click the **Sync** button in the Geolocation Flow dashboard to pull the latest Markets data
 2. Make sure your Shopify Markets are **published** (not in draft)
 3. Verify your markets have countries assigned in **Shopify Admin → Settings → Markets**
 
@@ -90,7 +90,7 @@ See [Display Settings]({{ '/docs/display-settings/' | relative_url }}) for detai
 
 ## General Questions
 
-### Does xapps slow down my store?
+### Does Geolocation Flow slow down my store?
 
 No. The redirect scripts are lightweight and load asynchronously. Widget embeds load in the body, and auto-redirect scripts load in the head for fast execution.
 

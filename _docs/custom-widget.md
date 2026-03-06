@@ -13,7 +13,7 @@ The redirect list is where you manage all your widget redirect buttons.
 
 ### Adding a Redirect
 
-1. Go to **xapps Dashboard → Custom Widget Redirects**
+1. Go to **Geolocation Flow Dashboard → Custom Widget Redirects**
 2. Click **Add redirect**
 3. Enter the **button label** (e.g., "Shop Canada") and **destination URL**
 4. Optionally set a **country flag** to display next to the button
@@ -49,9 +49,13 @@ Choose how the widget appears:
 - **Top Bar** — a slim banner at the top of the page (can be sticky). **Basic plan and above.**
 - **Select** — a compact select widget. **Basic plan and above.**
 
+![The three widget types — popup, top bar, and select]({{ '/assets/docs/widget-types.png' | relative_url }})
+
 ### Templates
 
-**Basic plan and above.** Pick from 6 built-in templates (Default, Modern, Minimal, Rounded, Glass, Dark) that control the overall widget style. The **Default** template uses CSS variables for full color customization.
+**Basic plan and above.** Pick from 6 built-in templates (Default, Modern, Minimal, Rounded, Glass, Dark) that control the overall widget style. The **Default** template supports full customization through the dashboard style settings (colors, fonts, etc.). Other built-in templates use fixed styles — to modify them, upgrade to the **Pro plan** and use the custom CSS code editor.
+
+![Template picker showing Default, Modern, Minimal, Rounded, Glass, and Dark options]({{ '/assets/docs/template-picker.png' | relative_url }})
 
 ### Layouts
 
@@ -92,6 +96,8 @@ Button hover colors are automatically derived by swapping the button background 
 ## Content & Style Section
 
 The Content & Style section provides a **live preview** of your widget as you make changes. Adjust colors, text, and layout and see the result in real time.
+
+![Content & Style section with live widget preview]({{ '/assets/docs/content-style-preview.png' | relative_url }})
 
 ### Custom CSS (Pro)
 

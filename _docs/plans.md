@@ -5,7 +5,7 @@ order: 10
 layout: docs
 ---
 
-xapps Geo Redirects offers three plans to fit stores of every size.
+Geolocation Flow offers three plans to fit stores of every size.
 
 ## Pricing
 
@@ -24,7 +24,7 @@ xapps Geo Redirects offers three plans to fit stores of every size.
 | Custom redirect buttons | 1 | 4 | Unlimited |
 | Custom auto-redirects | 1 | Unlimited | Unlimited |
 | Markets widget | Yes | Yes | Yes |
-| Markets auto-redirects | — | — | Yes |
+| Markets auto-redirects | Yes | Yes | Yes |
 
 ### Widget Customization
 
@@ -33,9 +33,11 @@ xapps Geo Redirects offers three plans to fit stores of every size.
 | Custom popup title | Yes | Yes | Yes |
 | Popup styles (modal, top bar, select) | — | Yes | Yes |
 | Customize colors & fonts | — | Yes | Yes |
-| Custom icon & body text | — | Yes | Yes |
+| Custom icon | Yes | Yes | Yes |
+| Custom body text | — | Yes | Yes |
 | Multi-language support | — | Yes | Yes |
 | Markets widget customization | — | Yes | Yes |
+| Markets widget button text | Yes | Yes | Yes |
 | Custom CSS styling | — | — | Yes |
 | Custom HTML ID | — | — | Yes |
 
@@ -76,7 +78,7 @@ xapps Geo Redirects offers three plans to fit stores of every size.
 | Redirect once (session / cookies) | Yes | Yes | Yes |
 | Bot detection (customizable) | Yes | Yes | Yes |
 | Auto-redirect delay | — | Yes | Yes |
-| Country exclusions | — | — | Yes |
+| Country exclusions | — | Yes | Yes |
 
 ## Developer Plan
 

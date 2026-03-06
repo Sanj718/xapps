@@ -24,12 +24,13 @@ Developer reference for Markets Auto Redirects — cookies, query parameters, co
 
 ## Query Parameters (All Embeds)
 
-These query parameters work across all xapps embeds:
+These query parameters work across all embeds:
 
 | Parameter | Purpose |
 |---|---|
 | `?xgeo-sim=1` | Activates the Geo Simulator overlay — simulate visits from any country |
-| `?xgeo-off` | Disables all xapps redirects for 7 days (sets a cookie) |
+| `?xgeo-sim=0` | Deactivates the Geo Simulator overlay |
+| `?xgeo-off` | Disables all redirects for 7 days (sets a cookie) |
 | `?xgeo-reset` | Re-enables redirects (removes the `xgeo-off` cookie) |
 | `?xgeo-markets-test` | Test mode — skips Markets auto-redirect execution for debugging |
 
@@ -53,26 +54,21 @@ bot|adsbot|googlebot|crawler|spider|robot|crawling|slurp
 
 ### How to Add Custom Code
 
-1. Go to **xapps Dashboard → Markets Auto Redirects**
+1. Go to **Geolocation Flow Dashboard → Markets Auto Redirects**
 2. Scroll down to the **Advanced** section
 3. Paste your custom JavaScript into the **Custom redirect rule** field
 4. Click **Save**
 
-### Function Signature
+### Parameters
 
-```javascript
-function run(currentMarket, redirectMarket, geolocation, marketsData, excludedCountries, forceRedirect) {
-  // currentMarket — the market the visitor is currently on
-  // redirectMarket — the market the visitor would be redirected to
-  // geolocation — { country: "CA", country_name: "Canada", continent: "NA" }
-  // marketsData — array of all synced Shopify Markets
-  // excludedCountries — array of country codes excluded from redirects
-  // forceRedirect({ country_code, locale_code? }) — force a redirect to a specific market
-
-  // Return {} to use default redirect logic
-  return {};
-}
-```
+| Parameter | Description |
+|---|---|
+| `currentMarket` | The market the visitor is currently on |
+| `redirectMarket` | The market the visitor would be redirected to |
+| `geolocation` | `{ country: "CA", country_name: "Canada", continent: "NA" }` |
+| `marketsData` | Array of all synced Shopify Markets |
+| `excludedCountries` | Array of country codes excluded from redirects |
+| `forceRedirect({ country_code, locale_code? })` | Force a redirect to a specific market |
 
 ### Return Values
 

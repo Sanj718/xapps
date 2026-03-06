@@ -5,13 +5,15 @@ order: 1
 layout: docs
 ---
 
-Get up and running with xapps Geo Redirects on your Shopify store.
+Get up and running with Geolocation Flow on your Shopify store.
 
 ## Installing the App
 
-1. Visit the [Shopify App Store](https://apps.shopify.com/) and search for **xapps Geo Redirects**
-2. Click **Add app** and authorize the required permissions
-3. You'll be redirected to the xapps dashboard inside your Shopify admin
+1. Visit the app on the [Shopify App Store](https://apps.shopify.com/native-geo-redirects-popup)
+2. Click **Install** and authorize the required permissions
+3. You'll be redirected to the app dashboard inside your Shopify admin
+
+![Geolocation Flow dashboard home page showing the 4 redirect type cards]({{ '/assets/docs/dashboard-home.png' | relative_url }})
 
 ## In-App Onboarding
 
@@ -37,13 +39,15 @@ Before going live, test your setup:
 - Preview redirects in the **live theme customizer**, or enable the app embed in any preview/draft theme to test there
 - Use the **Geo Simulator** by appending `?xgeo-sim=1` to any storefront URL — this loads an overlay that lets you simulate visits from different countries (the theme app embed must be enabled first)
 
+![Geo Simulator overlay on a storefront showing the country selector]({{ '/assets/docs/geo-simulator.png' | relative_url }})
+
 ### Step 4: Activate in Live Theme
 
 Once you're satisfied with testing, enable the app embed on your live/published theme. See [Activating Theme Embed]({{ '/docs/theme-embed/' | relative_url }}) for detailed instructions.
 
 ## Selecting a Plan
 
-xapps offers three plans:
+Geolocation Flow offers three plans:
 
 | | Free | Basic ($7.99/mo) | Pro ($14.99/mo) |
 |---|---|---|---|

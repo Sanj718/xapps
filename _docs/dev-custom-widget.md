@@ -51,16 +51,17 @@ Use these placeholders in the widget title or body text — they are replaced wi
 
 ## Query Parameters (All Embeds)
 
-These query parameters work across all xapps embeds and are useful during development and testing:
+These query parameters work across all embeds and are useful during development and testing:
 
 | Parameter | Purpose |
 |---|---|
 | `?xgeo-sim=1` | Activates the Geo Simulator overlay — simulate visits from any country |
-| `?xgeo-off` | Disables all xapps redirects for 7 days (sets a cookie) |
+| `?xgeo-sim=0` | Deactivates the Geo Simulator overlay |
+| `?xgeo-off` | Disables all redirects for 7 days (sets a cookie) |
 | `?xgeo-reset` | Re-enables redirects (removes the `xgeo-off` cookie) |
 | `?xgeo-test` | Test mode — forces the widget to show |
 | `?xgwr=1` | Prevents the widget from showing (loop prevention for widget redirects) |
-| `?xgar=1` | Prevents auto-redirects from firing (loop prevention for auto-redirects) |
+
 
 ## Custom JavaScript Rules (Pro)
 
@@ -68,7 +69,7 @@ These query parameters work across all xapps embeds and are useful during develo
 
 ### How to Add Custom Code
 
-1. Go to **xapps Dashboard → Custom Widget Redirects**
+1. Go to **Geolocation Flow Dashboard → Custom Widget Redirects**
 2. Scroll down to the **Advanced** section
 3. Paste your custom JavaScript into the **Custom widget display rule** or **Custom button display rule** field
 4. Click **Save**
@@ -77,15 +78,15 @@ These query parameters work across all xapps embeds and are useful during develo
 
 Controls whether and when the widget opens. When this rule is set, the default auto-open logic is disabled — you must call `openModal()` yourself.
 
-```javascript
-function run(geolocation, openModal, hasBeenClosed, displayFrequency) {
-  // geolocation = { country: "CA", country_name: "Canada", continent: "NA" }
-  // openModal() — call to open the widget
-  // hasBeenClosed() — returns "1" if previously closed, null otherwise
-  // displayFrequency() — getter: returns "session", "everyload", or "cookie"
-  // displayFrequency("cookie") — setter: changes frequency and migrates storage
-}
-```
+#### Parameters
+
+| Parameter | Description |
+|---|---|
+| `geolocation` | `{ country: "CA", country_name: "Canada", continent: "NA" }` |
+| `openModal()` | Call to open the widget |
+| `hasBeenClosed()` | Returns `"1"` if previously closed, `null` otherwise |
+| `displayFrequency()` | Getter: returns `"session"`, `"everyload"`, or `"cookie"` |
+| `displayFrequency("cookie")` | Setter: changes frequency and migrates storage |
 
 **Sample: Show only for Canadian visitors who haven't closed:**
 
@@ -132,15 +133,19 @@ function run(geolocation, openModal, hasBeenClosed, displayFrequency) {
 
 ### Button Display Rule
 
-Controls which redirect buttons are visible. The function is called once per button and should return `true` (show) or `false` (hide):
+Controls which redirect buttons are visible. The function is called once per button and should return `true` (show) or `false` (hide).
 
-```javascript
-function run(geolocation, redirectButton) {
-  // geolocation = { country: "CA", country_name: "Canada", continent: "NA" }
-  // redirectButton = { label: "Canada", url: "https://ca.store.com", ... }
-  return true; // show by default
-}
-```
+#### Parameters
+
+| Parameter | Description |
+|---|---|
+| `geolocation` | `{ country: "CA", country_name: "Canada", continent: "NA" }` |
+| `redirectButton` | `{ label: "Canada", url: "https://ca.store.com", ... }` |
+
+#### Return Values
+
+- `return true` — show the button
+- `return false` — hide the button
 
 **Sample: Hide the button that matches the visitor's country:**
 

@@ -1,55 +1,140 @@
+# Markets Widget
 
-Technical reference for the Markets Widget redirect and its integration with Shopify Markets.
+Developer reference for the Markets Widget — trigger attributes, query parameters, cookies, and custom JavaScript rules.
 
-## Overview
+## Trigger Attributes
 
-The Markets Widget works similarly to the Custom Widget but targets Shopify Markets instead of arbitrary URLs. It reads the store's market configuration to suggest the correct localized experience.
+Use these data attributes on any HTML element in your theme to control the Markets widget:
 
-## Events
+| Attribute | Description |
+|---|---|
+| `data-xgeo-markets-open` | Opens the Markets widget when this element is clicked |
+| `data-xgeo-markets-close` | Closes the Markets widget on click |
 
-```js
-document.addEventListener('xapps:markets-widget:show', function (e) {
-  console.log('Market suggestion:', e.detail.market);
-  // e.detail.market = { name, domain, currency, language }
-});
+Example — add a "Change country" button anywhere on your site:
 
-document.addEventListener('xapps:markets-widget:accept', function (e) {
-  console.log('Switching to market:', e.detail.market.name);
-});
-
-document.addEventListener('xapps:markets-widget:dismiss', function (e) {
-  console.log('User stayed in current market');
-});
+```html
+<button data-xgeo-markets-open>Change your country</button>
 ```
 
-## Programmatic Control
+### Hash Trigger
 
-```js
-// Force show the market suggestion widget
-window.xappsGeo.marketsWidget.show();
+You can open the Markets widget by navigating to `#xgeo-markets-open`. This is useful for adding a "Change country" link anywhere on your site:
 
-// Hide it
-window.xappsGeo.marketsWidget.hide();
-
-// Get the suggested market for the current visitor
-window.xappsGeo.marketsWidget.getSuggestedMarket();
-// → { name: "Europe", domain: "eu.example.com", currency: "EUR", language: "en" }
+```html
+<a href="#xgeo-markets-open">Change your country</a>
 ```
 
-## Shopify Markets Data
+### Hash Utilities
 
-The widget reads market data from Shopify's `Shopify.market` object. Ensure your Markets configuration is published for the widget to detect available markets.
+| Hash | Purpose |
+|---|---|
+| `#xgeo-markets-open` | Opens the Markets widget |
+| `#xgeo-markets-test` | Forces the widget to show for testing |
+| `#xgeo-markets-clear-user-data` | Clears all Markets widget cookies and session storage |
 
-## CSS Overrides
+## Cookies
 
-Same custom properties as the Custom Widget:
+| Cookie | Purpose | Duration |
+|---|---|---|
+| `xgeo-session` | Cached geolocation data (shared across all embeds) | 7 days |
+| `xgeo-markets-closed` | Tracks whether the visitor closed the widget | Cookie: 365 days / Session: until browser closes |
+| `xgeo-off` | Dev mode — disables all redirects | 7 days |
 
-```css
-xapps-widget {
-  --xapps-bg: #fff;
-  --xapps-text: #1a1a1a;
-  --xapps-btn: #000;
-  --xapps-btn-text: #fff;
-  --xapps-radius: 8px;
+## Query Parameters (All Embeds)
+
+These query parameters work across all embeds and are useful during development:
+
+| Parameter | Purpose |
+|---|---|
+| `?xgeo-sim=1` | Activates the Geo Simulator overlay — test from any country |
+| `?xgeo-sim=0` | Deactivates the Geo Simulator overlay |
+| `?xgeo-off` | Disables all redirects for 7 days (sets a cookie) |
+| `?xgeo-reset` | Re-enables redirects (removes the `xgeo-off` cookie) |
+| `?xgeo-markets-test` | Test mode — forces the Markets widget to show |
+
+## Custom JavaScript Rules (Pro)
+
+**Pro plan only.** Add custom JS logic in the **Advanced** section of your Markets Widget settings in the app dashboard.
+
+### How to Add Custom Code
+
+1. Go to **Geolocation Flow Dashboard → Markets Widget Redirects**
+2. Scroll down to the **Advanced** section
+3. Paste your custom JavaScript into the **Custom widget display rule** or **Custom items display rule** field
+4. Click **Save**
+
+### Widget Display Rule
+
+Controls whether and when the widget opens. When this rule is set, the default auto-open logic is disabled — you must call `openModal()` yourself.
+
+#### Parameters
+
+| Parameter | Description |
+|---|---|
+| `geolocation` | `{ country: "CA", country_name: "Canada", continent: "NA" }` |
+| `openModal()` | Call to open the widget |
+| `hasBeenClosed()` | Returns `"1"` if previously closed, `null` otherwise |
+| `displayFrequency()` | Returns `"session"`, `"everyload"`, or `"cookie"` |
+| `marketsData` | Array of synced Shopify Markets |
+
+**Sample: Show widget only for European visitors who haven't closed it:**
+
+```javascript
+function run(geolocation, openModal, hasBeenClosed, displayFrequency, marketsData) {
+  var euCountries = ["AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR",
+    "DE","GR","HU","IE","IT","LV","LT","LU","MT","NL","PL","PT","RO",
+    "SK","SI","ES","SE"];
+
+  if (euCountries.indexOf(geolocation.country) !== -1 && hasBeenClosed() !== "1") {
+    openModal();
+  }
 }
 ```
+
+**Sample: Show widget with a 3-second delay:**
+
+```javascript
+function run(geolocation, openModal, hasBeenClosed, displayFrequency, marketsData) {
+  if (hasBeenClosed() !== "1") {
+    setTimeout(function() {
+      openModal();
+    }, 3000);
+  }
+}
+```
+
+### Items Display Rule
+
+Controls which market items are visible in the selector. Called once per item, return `true` to show or `false` to hide.
+
+#### Parameters
+
+| Parameter | Description |
+|---|---|
+| `geolocation` | `{ country: "CA", country_name: "Canada", continent: "NA" }` |
+| `marketItem` | `{ label: "Canada", ... }` |
+| `marketsData` | Array of all synced Shopify Markets |
+
+#### Return Values
+
+- `return true` — show the item
+- `return false` — hide the item
+
+**Sample: Only show markets that are different from the visitor's current one:**
+
+```javascript
+function run(geolocation, marketItem, marketsData) {
+  // Hide the market that matches the visitor's current country
+  if (marketItem.countries && marketItem.countries.indexOf(geolocation.country) !== -1) {
+    return false;
+  }
+  return true;
+}
+```
+
+## Related Docs
+
+- [Markets Widget Redirects](/docs/markets-widget/) — setup and customization guide
+- [Display Settings](/docs/display-settings/) — frequency, delay, and page targeting
+- [Geo Targeting Rules](/docs/geo-targeting/) — location-based display rules

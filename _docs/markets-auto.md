@@ -16,7 +16,7 @@ Like the Markets Widget, auto redirects sync with your Shopify Markets configura
 When a visitor loads your store:
 
 1. Their country is detected via geolocation
-2. xapps checks which Shopify Market matches that country
+2. Geolocation Flow checks which Shopify Market matches that country
 3. If the visitor isn't already on the correct market, they are redirected
 4. A cookie is set to prevent repeated redirects
 

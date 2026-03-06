@@ -26,6 +26,8 @@ When using **Auto Geo Location**, choose the matching logic:
 
 > **Example:** To show the widget to everyone *except* US visitors, select "United States" and set the logic to **Outside**.
 
+![Geo targeting settings showing Inside/Outside toggle with country selector]({{ '/assets/docs/geo-targeting.png' | relative_url }})
+
 ## Location Types
 
 ### Continents
@@ -52,7 +54,7 @@ When selecting countries, click **EU** to automatically add all 27 European Unio
 
 ## How Geo Detection Works
 
-xapps uses IP-based geolocation to determine a visitor's country and continent. This data is available as a `geolocation` object with the following properties:
+Geolocation Flow utilizes Shopify's built-in geolocation detection to determine a visitor's country and continent. The app does not access or store visitor IP addresses — all location data comes from Shopify's native geolocation API. This data is available as a `geolocation` object with the following properties:
 
 - `country` — ISO country code (e.g., `CA`)
 - `country_name` — full country name (e.g., `Canada`)

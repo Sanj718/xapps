@@ -9,9 +9,11 @@ Markets Widget Redirects display a popup, top bar, or select widget that lets vi
 
 ## Shopify Markets Sync
 
-The Markets widget automatically syncs with your Shopify Markets configuration. When you add, remove, or update Markets in your Shopify admin, click **Sync** in the xapps dashboard to pull the latest data.
+The Markets widget automatically syncs with your Shopify Markets configuration. When you add, remove, or update Markets in your Shopify admin, click **Sync** in the Geolocation Flow dashboard to pull the latest data.
 
 The dashboard shows the **last sync date** so you know when data was last updated.
+
+![Markets sync section showing the Sync button and last sync timestamp]({{ '/assets/docs/markets-sync.png' | relative_url }})
 
 ## Widget Types
 
@@ -20,6 +22,8 @@ Choose how the markets selector appears on your storefront:
 - **Popup** — a modal overlay with country/language selectors and a submit button
 - **Top Bar** — a slim banner at the top of the page
 - **Select** — a compact select widget
+
+![Markets widget popup showing country and language selectors with flags]({{ '/assets/docs/markets-widget-popup.png' | relative_url }})
 
 ## Select Modes
 
@@ -90,7 +94,7 @@ Toggle country flag icons next to each option in the selector.
 
 ### Templates
 
-Choose from built-in templates. The **default** template supports full CSS variable customization.
+Choose from built-in templates. The **Default** template supports full customization through the dashboard style settings (colors, fonts, etc.). Other built-in templates use fixed styles — to modify them, upgrade to the **Pro plan** and use the custom CSS code editor.
 
 ### Custom CSS (Pro)
 

@@ -48,6 +48,8 @@ Available page templates:
 - Search page
 - Account pages
 
+![Page visibility settings showing template checkboxes and show/hide toggle]({{ '/assets/docs/page-visibility.png' | relative_url }})
+
 ### Custom URLs
 
 In addition to template targeting, you can add specific **custom URLs** to fine-tune page visibility.

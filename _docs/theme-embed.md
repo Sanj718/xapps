@@ -5,7 +5,7 @@ order: 2
 layout: docs
 ---
 
-xapps uses Shopify's theme app embed system to inject redirect scripts into your storefront. There are 4 separate embeds — one for each redirect type. You only need to enable the ones you use.
+Geolocation Flow uses Shopify's theme app embed system to inject redirect scripts into your theme. There are 4 separate embeds — one for each redirect type. You only need to enable the ones you use.
 
 ## The 4 Embeds
 
@@ -21,22 +21,27 @@ xapps uses Shopify's theme app embed system to inject redirect scripts into your
 1. In your Shopify admin, go to **Online Store → Themes**
 2. Click **Customize** on the theme you want to edit
 3. Click the **App embeds** icon (puzzle piece) in the left sidebar
-4. Find the xapps embed you need and toggle it **on**
+4. Find the Geolocation Flow embed you need and toggle it **on**
 5. Click **Save**
 
-[Screenshot: Theme editor App embeds panel showing xapps toggles]
+![Theme editor App embeds panel showing xapps toggles]({{ '/assets/docs/theme-editor-app-embeds.png' | relative_url }})
 
-> **Tip:** You can also open the theme editor directly from your xapps dashboard — each redirect type card on the home page includes an **Activate in theme** link.
+> **Tip:** You can also open the theme editor directly from your Geolocation Flow dashboard — each redirect type card on the home page includes an **Activate in theme** link.
 
 ## Testing with Geo Simulator
 
 Before activating on your live theme, verify everything works using the Geo Simulator:
 
-1. Append `?xgeo-sim=1` to any page URL on your storefront
-2. A simulator overlay appears letting you select any country to test with
-3. The simulator stays active for 24 hours (stored in the `xgeo-sim-active` cookie)
+1. Enable the Theme App embed in your Preview theme. 
+2. Append `?xgeo-sim=1` to any page URL on your storefront
+3. A simulator overlay appears letting you select any country to test with
+4. The simulator stays active for 24 hours (stored in the `xgeo-sim-active` cookie)
 
 Example: `https://your-store.myshopify.com?xgeo-sim=1`
+
+**To exit the Geo Simulator:** Append `?xgeo-sim=0` to any page URL, or wait 24 hours for the cookie to expire.
+
+Example: `https://your-store.myshopify.com?xgeo-sim=0`
 
 ## Important Notes
 

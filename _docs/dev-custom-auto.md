@@ -24,14 +24,14 @@ Developer reference for Custom Auto Redirects — cookies, query parameters, bot
 
 ## Query Parameters (All Embeds)
 
-These query parameters work across all xapps embeds and are useful during development and testing:
+These query parameters work across all embeds and are useful during development and testing:
 
 | Parameter | Purpose |
 |---|---|
 | `?xgar=1` | Loop prevention — appended to redirect URLs by default. When present, auto-redirect is skipped. |
-| `?xgwr=1` | Loop prevention for widget redirects — prevents widget from showing |
 | `?xgeo-sim=1` | Activates the Geo Simulator overlay — simulate visits from any country |
-| `?xgeo-off` | Disables all xapps redirects for 7 days (sets a cookie) |
+| `?xgeo-sim=0` | Deactivates the Geo Simulator overlay |
+| `?xgeo-off` | Disables all redirects for 7 days (sets a cookie) |
 | `?xgeo-reset` | Re-enables redirects (removes the `xgeo-off` cookie) |
 | `?xgeo-test` | Test mode — skips auto-redirect execution for debugging |
 
@@ -51,21 +51,19 @@ This pattern is customizable in the dashboard settings. The regex is case-insens
 
 ### How to Add Custom Code
 
-1. Go to **xapps Dashboard → Custom Auto Redirects**
+1. Go to **Geolocation Flow Dashboard → Custom Auto Redirects**
 2. Scroll down to the **Advanced** section
 3. Paste your custom JavaScript into the **Custom redirect rule** field
 4. Click **Save**
 
-### Function Signature
+### Parameters
 
-```javascript
-function run(redirectUrl, currentUrl, geolocation, forceRedirect) {
-  // redirectUrl — the URL the visitor would be redirected to
-  // currentUrl — the current page URL
-  // geolocation — { country: "CA", country_name: "Canada", continent: "NA" }
-  // forceRedirect(url) — call to force a redirect to a specific URL
-}
-```
+| Parameter | Description |
+|---|---|
+| `redirectUrl` | The URL the visitor would be redirected to |
+| `currentUrl` | The current page URL |
+| `geolocation` | `{ country: "CA", country_name: "Canada", continent: "NA" }` |
+| `forceRedirect(url)` | Call to force a redirect to a specific URL |
 
 ### Return Values
 

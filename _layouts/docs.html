@@ -53,7 +53,7 @@
             <ul>
               {% for doc in sorted_docs %}
                 {% if doc.category == cat %}
-                <li><a href="{{ doc.url | relative_url }}" {% if page.url == doc.url %}class="docs-sidebar__active"{% endif %}>{{ doc.title }}</a></li>
+                <li><a href="{{ doc.url | relative_url }}" {% if page.url == doc.url or page.url == '/docs/' and doc.slug == 'getting-started' or page.url == '/docs.html' and doc.slug == 'getting-started' %}class="docs-sidebar__active"{% endif %}>{{ doc.title }}</a></li>
                 {% endif %}
               {% endfor %}
             </ul>
@@ -68,7 +68,7 @@
           <ul>
             {% for doc in sorted_docs %}
               {% if doc.category == cat %}
-              <li><a href="{{ doc.url | relative_url }}" {% if page.url == doc.url %}class="docs-sidebar__active"{% endif %}>{{ doc.title }}</a></li>
+              <li><a href="{{ doc.url | relative_url }}" {% if page.url == doc.url or page.url == '/docs/' and doc.slug == 'getting-started' or page.url == '/docs.html' and doc.slug == 'getting-started' %}class="docs-sidebar__active"{% endif %}>{{ doc.title }}</a></li>
               {% endif %}
             {% endfor %}
           </ul>

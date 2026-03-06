@@ -13,7 +13,7 @@ Manage your auto-redirect rules from the main dashboard.
 
 ### Adding an Auto-Redirect
 
-1. Go to **xapps Dashboard → Custom Auto Redirects**
+1. Go to **Geolocation Flow Dashboard → Custom Auto Redirects**
 2. Click **Add redirect**
 3. Select the **target locations** — choose countries or continents
 4. Set the **geo logic**:
@@ -21,6 +21,8 @@ Manage your auto-redirect rules from the main dashboard.
    - **Outside** — redirect visitors who are *not* in the selected locations
 5. Enter the **destination URL**
 6. Save your changes
+
+![Auto-redirect form showing location selector, geo logic toggle, and destination URL field]({{ '/assets/docs/auto-redirect-form.png' | relative_url }})
 
 ### Redirect Options
 
@@ -52,7 +54,7 @@ When enabled (default), visitors are only redirected once per session or per coo
 
 ### Bot Detection
 
-xapps automatically detects bots and crawlers to prevent them from being redirected. The default detection pattern covers common bots:
+Geolocation Flow automatically detects bots and crawlers to prevent them from being redirected. The default detection pattern covers common bots:
 
 ```
 bot|adsbot|googlebot|crawler|spider|robot|crawling|slurp
@@ -74,7 +76,7 @@ You can customize this regex pattern in the settings to add or remove bot user-a
 
 ### Loop Prevention
 
-xapps appends `?xgar=1` to redirect URLs by default to prevent infinite redirect loops. You can disable this parameter in settings if needed.
+Geolocation Flow appends `?xgar=1` to redirect URLs by default to prevent infinite redirect loops. You can disable this parameter in settings if needed.
 
 ## Related Docs
 

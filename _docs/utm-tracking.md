@@ -11,7 +11,7 @@ Track redirect performance with UTM parameters and Google Analytics integration.
 
 **Basic plan and above.** Append UTM parameters to redirect URLs so you can track redirected traffic in Google Analytics or any analytics tool.
 
-Configure these values in **xapps Dashboard → Settings**:
+Configure these values in **Geolocation Flow Dashboard → Settings**:
 
 | Parameter | Description | Example |
 |---|---|---|
@@ -23,7 +23,7 @@ When set, these parameters are automatically appended to all redirect URLs (e.g.
 
 ## Google Analytics Event (Basic+)
 
-**Basic plan and above.** xapps fires a custom Google Analytics event when a visitor clicks a redirect button or is auto-redirected.
+**Basic plan and above.** Geolocation Flow fires a custom Google Analytics event when a visitor clicks a redirect button or is auto-redirected.
 
 - **Default event name:** `geo_redirect_click`
 - Customize the event name in your settings to match your GA4 event naming conventions
@@ -40,7 +40,7 @@ The event is sent via `gtag()` if Google Analytics is installed on your store.
 
 ## Safety Parameters
 
-xapps uses special query parameters to prevent redirect loops and allow testing:
+Geolocation Flow uses special query parameters to prevent redirect loops and allow testing:
 
 | Parameter | Purpose |
 |---|---|

@@ -462,6 +462,10 @@ article a:hover {
   stroke: currentColor;
 }
 
+.docs-content {
+  min-width: 0;
+}
+
 .docs-content h1 {
   margin-bottom: 1rem;
 }
@@ -584,11 +588,21 @@ html[data-theme="night"] .docs-content pre {
   line-height: 1.6;
 }
 
+.docs-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
 .docs-content table {
   width: 100%;
   border-collapse: collapse;
   margin: 1rem 0;
   font-size: 0.875rem;
+  display: block;
+  overflow-x: auto;
 }
 
 .docs-content th,
@@ -597,6 +611,11 @@ html[data-theme="night"] .docs-content pre {
   padding: 0.5rem 0.75rem;
   border-bottom: 1px solid rgba(128, 128, 128, 0.2);
   color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.docs-content td:last-child {
+  white-space: normal;
 }
 
 .docs-content th {

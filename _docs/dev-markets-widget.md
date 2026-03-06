@@ -49,22 +49,23 @@ You can open the Markets widget by navigating to `#xgeo-markets-open`. This is u
 
 ## Query Parameters (All Embeds)
 
-These query parameters work across all xapps embeds and are useful during development:
+These query parameters work across all embeds and are useful during development:
 
 | Parameter | Purpose |
 |---|---|
 | `?xgeo-sim=1` | Activates the Geo Simulator overlay — test from any country |
-| `?xgeo-off` | Disables all xapps redirects for 7 days (sets a cookie) |
+| `?xgeo-sim=0` | Deactivates the Geo Simulator overlay |
+| `?xgeo-off` | Disables all redirects for 7 days (sets a cookie) |
 | `?xgeo-reset` | Re-enables redirects (removes the `xgeo-off` cookie) |
 | `?xgeo-markets-test` | Test mode — forces the Markets widget to show |
 
 ## Custom JavaScript Rules (Pro)
 
-**Pro plan only.** Add custom JS logic in the **Advanced** section of your Markets Widget settings in the xapps dashboard.
+**Pro plan only.** Add custom JS logic in the **Advanced** section of your Markets Widget settings in the app dashboard.
 
 ### How to Add Custom Code
 
-1. Go to **xapps Dashboard → Markets Widget Redirects**
+1. Go to **Geolocation Flow Dashboard → Markets Widget Redirects**
 2. Scroll down to the **Advanced** section
 3. Paste your custom JavaScript into the **Custom widget display rule** or **Custom items display rule** field
 4. Click **Save**
@@ -73,19 +74,15 @@ These query parameters work across all xapps embeds and are useful during develo
 
 Controls whether and when the widget opens. When this rule is set, the default auto-open logic is disabled — you must call `openModal()` yourself.
 
-```javascript
-function run(geolocation, openModal, hasBeenClosed, displayFrequency, marketsData) {
-  // geolocation = { country: "CA", country_name: "Canada", continent: "NA" }
-  // openModal() — call to open the widget
-  // hasBeenClosed() — returns "1" if previously closed, null otherwise
-  // displayFrequency() — returns "session", "everyload", or "cookie"
-  // marketsData — array of synced Shopify Markets
+#### Parameters
 
-  if (geolocation.country === "CA" && hasBeenClosed() !== "1") {
-    openModal();
-  }
-}
-```
+| Parameter | Description |
+|---|---|
+| `geolocation` | `{ country: "CA", country_name: "Canada", continent: "NA" }` |
+| `openModal()` | Call to open the widget |
+| `hasBeenClosed()` | Returns `"1"` if previously closed, `null` otherwise |
+| `displayFrequency()` | Returns `"session"`, `"everyload"`, or `"cookie"` |
+| `marketsData` | Array of synced Shopify Markets |
 
 **Sample: Show widget only for European visitors who haven't closed it:**
 
@@ -115,20 +112,20 @@ function run(geolocation, openModal, hasBeenClosed, displayFrequency, marketsDat
 
 ### Items Display Rule
 
-Controls which market items are visible in the selector. Called once per item, return `true` to show or `false` to hide:
+Controls which market items are visible in the selector. Called once per item, return `true` to show or `false` to hide.
 
-```javascript
-function run(geolocation, marketItem, marketsData) {
-  // geolocation = { country: "CA", country_name: "Canada", continent: "NA" }
-  // marketItem = { label: "Canada", ... }
-  // marketsData — array of all synced Shopify Markets
+#### Parameters
 
-  if (geolocation.country === "CA" && marketItem.label === "Canada") {
-    return false; // hide Canada option for Canadian visitors
-  }
-  return true;
-}
-```
+| Parameter | Description |
+|---|---|
+| `geolocation` | `{ country: "CA", country_name: "Canada", continent: "NA" }` |
+| `marketItem` | `{ label: "Canada", ... }` |
+| `marketsData` | Array of all synced Shopify Markets |
+
+#### Return Values
+
+- `return true` — show the item
+- `return false` — hide the item
 
 **Sample: Only show markets that are different from the visitor's current one:**
 
