@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
   <link rel="apple-touch-icon" sizes="57x57" href="{{ '/assets/apple-icon-57x57.png' | relative_url }}">
   <link rel="apple-touch-icon" sizes="60x60" href="{{ '/assets/apple-icon-60x60.png' | relative_url }}">
@@ -22,6 +21,7 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="{{ '/assets/ms-icon-144x144.png' | relative_url }}">
   <meta name="theme-color" content="#ffffff">
+  {% seo %}
   {% if site.google_analytics %}
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
   <script>

@@ -1,8 +1,13 @@
 title: xapps
 description: Simple Shopify apps built for real merchants.
+url: https://xapps.shop
 
 # Google Analytics (GA4). Measurement ID from Data Streams > Web
 google_analytics: G-F9BYNNKRNV
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
 collections:
   docs:
