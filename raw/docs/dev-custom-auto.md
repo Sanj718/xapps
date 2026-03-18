@@ -59,11 +59,22 @@ This pattern is customizable in the dashboard settings. The regex is case-insens
 | `geolocation` | `{ country: "CA", country_name: "Canada", continent: "NA" }` |
 | `forceRedirect(url)` | Call to force a redirect to a specific URL |
 
+### Execution Order
+
+Your custom code runs **per redirect item**, after the app matches the visitor's location to a redirect rule. The flow is:
+
+1. The app loops through redirect items in order
+2. For each item that matches the visitor's geo, your `run()` function is called
+3. Your code can override or cancel the redirect via return values
+
+> **Important:** `forceRedirect(url)` calls `window.location.replace()`, but the browser doesn't stop JavaScript execution instantly. The redirect item loop continues running — so if you call `forceRedirect()` without returning `false`, the next matching redirect item can overwrite your forced redirect before the browser navigates.
+
 ### Return Values
 
 - `return {}` — proceed with the default redirect
-- `return { skip: true }` — cancel the redirect
-- `forceRedirect(url)` — redirect to a different URL
+- `return { skip: true }` — cancel the redirect for this item
+- `return false` — skip this redirect item (use after calling `forceRedirect`)
+- `forceRedirect(url)` + `return false` — redirect to a different URL and prevent the normal redirect from overwriting it
 
 ### Sample: Use default redirect logic (pass-through)
 
@@ -91,11 +102,11 @@ function run(redirectUrl, currentUrl, geolocation, forceRedirect) {
 function run(redirectUrl, currentUrl, geolocation, forceRedirect) {
   if (geolocation.country === "GB") {
     forceRedirect("https://uk.mystore.com" + window.location.pathname);
-    return;
+    return false; // prevents the normal redirect from overwriting
   }
   if (geolocation.country === "DE") {
     forceRedirect("https://de.mystore.com" + window.location.pathname);
-    return;
+    return false;
   }
   return {}; // default logic for everyone else
 }

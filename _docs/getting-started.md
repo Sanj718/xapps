@@ -9,7 +9,7 @@ Get up and running with Geolocation Flow on your Shopify store.
 
 ## Installing the App
 
-1. Visit the app on the [Shopify App Store](https://apps.shopify.com/native-geo-redirects-popup)
+1. Visit the app on the [Shopify App Store](https://apps.shopify.com/geolocation-flow)
 2. Click **Install** and authorize the required permissions
 3. You'll be redirected to the app dashboard inside your Shopify admin
 

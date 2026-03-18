@@ -81,7 +81,7 @@
       <div class="docs-content__header">
         <h1>{% if page.icon %}<i data-lucide="{{ page.icon }}" class="docs-content__title-icon"></i> {% endif %}{{ page.title }}</h1>
         {% if page.category == "Developers" %}
-        {% assign raw_filename = page.name %}
+        {% assign raw_filename = page.slug | append: ".md" %}
         <a href="{{ '/raw/docs/' | append: raw_filename | relative_url }}" class="docs-content__raw" title="Open as markdown" target="_blank" rel="noopener">.md<i data-lucide="external-link" class="docs-content__raw-icon"></i>
         </a>
         {% endif %}
