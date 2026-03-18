@@ -64,11 +64,22 @@ bot|adsbot|googlebot|crawler|spider|robot|crawling|slurp
 | `excludedCountries` | Array of country codes excluded from redirects |
 | `forceRedirect({ country_code, locale_code? })` | Force a redirect to a specific market |
 
+### Execution Order
+
+Your custom code runs **per redirect item**, after the app matches the visitor's location to a redirect rule. The flow is:
+
+1. The app loops through redirect items in order
+2. For each item that matches the visitor's geo, your `run()` function is called
+3. Your code can override or cancel the redirect via return values
+
+> **Important:** `forceRedirect()` calls `window.location.replace()`, but the browser doesn't stop JavaScript execution instantly. The redirect item loop continues running — so if you call `forceRedirect()` without returning `false`, the next matching redirect item can overwrite your forced redirect before the browser navigates.
+
 ### Return Values
 
 - `return {}` — proceed with the default redirect
-- `return { skip: true }` — cancel the redirect
-- `forceRedirect({ country_code, locale_code })` — redirect to a specific market by country/locale code
+- `return { skip: true }` — cancel the redirect for this item
+- `return false` — skip this redirect item (use after calling `forceRedirect`)
+- `forceRedirect({ country_code, locale_code })` + `return false` — redirect to a specific market and prevent the normal redirect from overwriting it
 
 ### Sample: Only redirect visitors from specific countries
 
@@ -95,7 +106,7 @@ function run(currentMarket, redirectMarket, geolocation, marketsData, excludedCo
   if (euCountries.indexOf(geolocation.country) !== -1) {
     // Force redirect to the EU market (e.g., Germany with English locale)
     forceRedirect({ country_code: "DE", locale_code: "en" });
-    return;
+    return false; // prevents the normal redirect from overwriting
   }
 
   return {}; // default logic for non-EU visitors
