@@ -3,6 +3,6 @@
   "private": true,
   "scripts": {
     "dev": "bundle exec jekyll serve",
-    "build": "bundle exec jekyll build"
+    "build": "bundle exec jekyll build && npx pagefind --site _site"
   }
 }

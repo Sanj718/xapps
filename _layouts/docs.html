@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet" onerror="this.remove()">
   <link rel="apple-touch-icon" sizes="57x57" href="{{ '/assets/apple-icon-57x57.png' | relative_url }}">
   <link rel="apple-touch-icon" sizes="60x60" href="{{ '/assets/apple-icon-60x60.png' | relative_url }}">
   <link rel="apple-touch-icon" sizes="72x72" href="{{ '/assets/apple-icon-72x72.png' | relative_url }}">
@@ -38,6 +39,10 @@
 </head>
 <body>
   {% include header.html %}
+
+  <div class="docs-search-bar">
+    <div id="docs-search"></div>
+  </div>
 
   {% assign cat_icons = "Getting Started:rocket,Custom Redirects:earth,Markets Redirects:store,Configuration:settings,Plans:credit-card,FAQ:help-circle,Developers:code-xml" | split: "," %}
   <main class="docs-layout">
@@ -77,7 +82,7 @@
       </nav>
     </aside>
 
-    <article class="docs-content">
+    <article class="docs-content" data-pagefind-body>
       <div class="docs-content__header">
         <h1>{% if page.icon %}<i data-lucide="{{ page.icon }}" class="docs-content__title-icon"></i> {% endif %}{{ page.title }}</h1>
         {% if page.category == "Developers" %}
@@ -91,6 +96,22 @@
   </main>
 
   <script src="{{ '/js/theme.js' | relative_url }}"></script>
+  <script>
+    (function() {
+      var s = document.createElement('script');
+      s.src = '/pagefind/pagefind-ui.js';
+      s.onload = function() {
+        new PagefindUI({
+          element: '#docs-search',
+          showSubResults: false,
+          showImages: false,
+          resetStyles: false,
+          excerptLength: 12
+        });
+      };
+      document.head.appendChild(s);
+    })();
+  </script>
   <script>
   (function(){
     document.querySelectorAll('.docs-content pre').forEach(function(pre){

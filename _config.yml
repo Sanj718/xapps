@@ -9,6 +9,9 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
+keep_files:
+  - pagefind
+
 collections:
   docs:
     output: true
