@@ -24,6 +24,8 @@ The dropdown renders inline wherever you place the block — typically in the he
 
 When you add the inline widget as an app block in the theme editor, the following settings are available in the block panel:
 
+![Custom Widget redirects app block settings panel in the Shopify theme editor]({{ '/assets/docs/custom-widget-redirects-inline-app-block.png' | relative_url }})
+
 | Setting | Description |
 |---|---|
 | **Alignment** | Horizontal alignment of the dropdown — Left, Center, or Right |

@@ -22,6 +22,8 @@ The markets inline widget is added as an app block in the Shopify theme editor:
 
 When you add the markets inline widget as an app block in the theme editor, the following settings are available in the block panel:
 
+![Markets Inline Widget app block settings panel in the Shopify theme editor]({{ '/assets/docs/markets-inline-widget-app-block.png' | relative_url }})
+
 | Setting | Description |
 |---|---|
 | **Alignment** | Horizontal alignment of the dropdown — Left, Center, or Right |
