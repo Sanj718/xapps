@@ -33,13 +33,20 @@ The panel lets you:
 
 After selecting a country, reload the page to trigger your redirect rules as if you were visiting from that location.
 
+## Deactivating the Simulator
+
+To deactivate before the cookie expires, use any of these methods:
+
+- Click **Disable** in the simulator panel
+- Append `?xgeo-sim=0` to any storefront URL
+
 ## How It Works
 
 The simulation is stored in a browser cookie. When active, the app reads the simulated country instead of making a real geolocation lookup. This means:
 
-- The simulation persists across page navigations on the same store
+- The simulation persists across page navigations on the same store and expires automatically after **24 hours**
 - It only affects your browser session — real visitors are unaffected
-- Clicking **Reset** or **Disable** removes the cookie and ends the simulation
+- Clicking **Reset** clears the simulated country; clicking **Disable** ends the simulation entirely
 
 ## Use Cases
 

@@ -24,6 +24,8 @@ The dropdown renders inline wherever you place the block — typically in the he
 
 Go to **Geolocation Flow Dashboard → Custom Widget Redirects → Customize inline dropdown** to configure the appearance.
 
+![Customize inline dropdown panel showing default selection, label, style, font, and CSS code editor settings]({{ '/assets/docs/custom-widget-redirects-inline.png' | relative_url }})
+
 ### Default Selection (Pro)
 
 **Pro plan only.** Controls what the dropdown shows before the visitor makes a selection:
@@ -76,3 +78,4 @@ Choose the font for the dropdown label:
 - [Custom Widget Redirects]({{ '/docs/custom-widget/' | relative_url }}) — manages the redirect list used by the inline widget
 - [Geo Targeting Rules]({{ '/docs/geo-targeting/' | relative_url }}) — control which visitors see the inline widget
 - [Display Settings]({{ '/docs/display-settings/' | relative_url }}) — page-specific visibility settings
+- [Inline Widget]({{ '/docs/dev-inline-widget/' | relative_url }}) — cookies, query parameters, and custom JS rules

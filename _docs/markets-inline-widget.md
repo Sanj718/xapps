@@ -22,6 +22,8 @@ The markets inline widget is added as an app block in the Shopify theme editor:
 
 Go to **Geolocation Flow Dashboard → Markets Widget Redirects → Customize inline dropdown** to configure the appearance.
 
+![Customize markets inline dropdown panel showing label format, icon, country & language mode, button text, style, and font settings]({{ '/assets/docs/markets-widget-redirects-inline.png' | relative_url }})
+
 ### Label Format (Pro)
 
 **Pro plan only.** Controls what each market option displays as in the dropdown:
@@ -95,3 +97,4 @@ Choose the font for the dropdown label:
 
 - [Markets Widget Redirects]({{ '/docs/markets-widget/' | relative_url }}) — popup version powered by Shopify Markets
 - [Geo Targeting Rules]({{ '/docs/geo-targeting/' | relative_url }}) — control which visitors see the inline widget
+- [Markets Inline Widget]({{ '/docs/dev-markets-inline-widget/' | relative_url }}) — cookies, query parameters, and custom JS rules
