@@ -415,6 +415,7 @@ article a:hover {
   color: var(--color-text);
   border-radius: 12px;
 }
+
 #docs-search .pagefind-ui__search-clear {
   color: var(--color-muted);
   padding: 0.5rem;
