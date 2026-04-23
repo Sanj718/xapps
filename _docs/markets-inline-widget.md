@@ -18,6 +18,20 @@ The markets inline widget is added as an app block in the Shopify theme editor:
 3. Click **Add block** and select **Geolocation Flow — Markets Inline Dropdown**
 4. Save the theme
 
+## App Block Settings
+
+When you add the markets inline widget as an app block in the theme editor, the following settings are available in the block panel:
+
+| Setting | Description |
+|---|---|
+| **Alignment** | Horizontal alignment of the dropdown — Left, Center, or Right |
+| **Vertical position** | Vertical alignment within its container — Top, Middle, or Bottom |
+| **Full width** | Stretch the dropdown to fill the full width of its container |
+| **Preview mode** | Show the widget in the theme editor regardless of geo targeting rules — useful for positioning without needing to simulate a country |
+| **Custom placement** | Inject the widget into a specific element using a CSS selector instead of the block's default position |
+| **HTML selector** | CSS selector for the target element (e.g., `#header`, `.site-nav`, `[data-header]`) — only used when Custom placement is enabled |
+| **Injection position** | Where to place the widget relative to the target element — Inside (append), Before, or After |
+
 ## Customize Page
 
 Go to **Geolocation Flow Dashboard → Markets Widget Redirects → Customize inline dropdown** to configure the appearance.
