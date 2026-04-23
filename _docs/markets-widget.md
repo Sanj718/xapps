@@ -1,7 +1,7 @@
 ---
 title: Markets Widget Redirects
 category: Markets Redirects
-order: 5
+order: 7
 layout: docs
 ---
 

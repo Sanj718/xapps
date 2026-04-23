@@ -1,7 +1,7 @@
 ---
 title: Markets Auto Redirects
 category: Markets Redirects
-order: 6
+order: 9
 layout: docs
 ---
 

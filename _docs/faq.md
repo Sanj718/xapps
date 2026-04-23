@@ -1,7 +1,7 @@
 ---
 title: Frequently Asked Questions
 category: FAQ
-order: 11
+order: 15
 layout: docs
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Plans Comparison
 category: Plans
-order: 10
+order: 14
 layout: docs
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Markets Widget
 category: Developers
-order: 14
+order: 18
 layout: docs
 icon: store
 ---

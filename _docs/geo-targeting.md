@@ -1,7 +1,7 @@
 ---
 title: Geo Targeting Rules
 category: Configuration
-order: 7
+order: 10
 layout: docs
 ---
 

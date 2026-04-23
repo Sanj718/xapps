@@ -1,7 +1,7 @@
 ---
 title: Markets Auto
 category: Developers
-order: 15
+order: 19
 layout: docs
 icon: arrow-right-left
 ---

@@ -1,7 +1,7 @@
 ---
 title: Display Settings
 category: Configuration
-order: 8
+order: 11
 layout: docs
 ---
 

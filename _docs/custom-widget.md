@@ -1,7 +1,7 @@
 ---
 title: Custom Widget Redirects
 category: Custom Redirects
-order: 3
+order: 4
 layout: docs
 ---
 

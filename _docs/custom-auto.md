@@ -1,7 +1,7 @@
 ---
 title: Custom Auto Redirects
 category: Custom Redirects
-order: 4
+order: 6
 layout: docs
 ---
 

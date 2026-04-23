@@ -1,7 +1,7 @@
 ---
 title: Custom Widget
 category: Developers
-order: 12
+order: 16
 layout: docs
 icon: earth
 ---
