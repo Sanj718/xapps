@@ -47,13 +47,13 @@ Once you're satisfied with testing, enable the app embed on your live/published 
 
 ## Selecting a Plan
 
-Geolocation Flow offers three plans:
+Geolocation Flow offers two plans:
 
-| | Free | Basic ($7.99/mo) | Pro ($14.99/mo) |
-|---|---|---|---|
-| Redirect buttons | 1 | 4 | Unlimited |
-| Auto-redirects | 1 | Unlimited | Unlimited |
-| Widget customization | Basic | Full | Full + Custom CSS & logic |
+| | Free | Pro ($9.99/mo) |
+|---|---|---|
+| Redirect buttons | 1 | Unlimited |
+| Auto-redirects | 1 | Unlimited |
+| Widget customization | Basic | Full — custom styles, CSS & logic |
 
 See the full [Plans Comparison]({{ '/docs/plans/' | relative_url }}) for a detailed feature breakdown.
 

@@ -41,7 +41,7 @@ Manage your auto-redirect rules from the main dashboard.
 - **Skip mode** — redirect on all pages *except* selected templates
 - Available templates: index, product, collection, page, blog, article, cart, 404, search, account pages
 
-> **Free plan:** Up to 1 auto-redirect. **Basic plan and above:** Unlimited auto-redirects.
+> **Free plan:** Up to 1 auto-redirect. **Pro plan:** Unlimited auto-redirects.
 
 ## Auto-Redirect Settings
 
@@ -62,17 +62,17 @@ bot|adsbot|googlebot|crawler|spider|robot|crawling|slurp
 
 You can customize this regex pattern in the settings to add or remove bot user-agent strings.
 
-### Redirect Delay (Basic+)
+### Redirect Delay (Pro)
 
-**Basic plan and above.** Set a delay in seconds before the redirect fires. This gives visitors a moment to see the page before being redirected. Set to `0` for instant redirect.
+**Pro plan only.** Set a delay in seconds before the redirect fires. This gives visitors a moment to see the page before being redirected. Set to `0` for instant redirect.
 
-### Forward URL Query Params (Basic+)
+### Forward URL Query Params (Pro)
 
-**Basic plan and above.** When enabled, the current page's URL query parameters are forwarded to the redirect destination. This preserves tracking codes, referral parameters, and other query strings across the redirect.
+**Pro plan only.** When enabled, the current page's URL query parameters are forwarded to the redirect destination. This preserves tracking codes, referral parameters, and other query strings across the redirect.
 
-### Global Domain Redirection (Basic+)
+### Global Domain Redirection (Pro)
 
-**Basic plan and above.** When enabled, redirects preserve the current page path when switching to a different domain.
+**Pro plan only.** When enabled, redirects preserve the current page path when switching to a different domain.
 
 ### Loop Prevention
 

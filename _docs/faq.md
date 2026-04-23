@@ -64,7 +64,6 @@ If a specific bot is still being redirected, add its user-agent string to the bo
 **I've reached my redirect button limit.**
 
 - **Free plan:** 1 redirect button, 1 auto-redirect
-- **Basic plan:** 4 redirect buttons, unlimited auto-redirects
 - **Pro plan:** Unlimited redirect buttons, unlimited auto-redirects
 
 Upgrade your plan to add more redirects. See [Plans Comparison]({{ '/docs/plans/' | relative_url }}).

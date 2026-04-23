@@ -1,0 +1,192 @@
+<style>
+  /* Mirror real site variables */
+  .site-preview {
+    --color-text: #e0e0e0;
+    --color-bg: #1a1a2e;
+    --color-muted: #a0a0b0;
+    font-family: monospace;
+    background: #1a1a2e;
+    color: #e0e0e0;
+    border-radius: 12px;
+    padding: 32px 28px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .site-preview h2.features__heading {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #e0e0e0;
+  }
+  .features__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .features__card {
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.09);
+  }
+  .features__icon { margin-bottom: 0.75rem; color: #e0e0e0; font-size: 20px; }
+  .features__title { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: #e0e0e0; }
+  .features__desc { font-size: 0.85rem; color: #a0a0b0; line-height: 1.55; margin: 0; }
+
+  /* NEW: secondary row */
+  .features__also {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .features__also-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #a0a0b0;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+  }
+  .features__also-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  .features__also-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+  }
+  .features__also-item.new {
+    border-color: rgba(99,102,241,0.35);
+    background: rgba(99,102,241,0.07);
+  }
+  .features__also-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #e0e0e0;
+    margin-bottom: 0.25rem;
+  }
+  .features__also-desc {
+    font-size: 0.75rem;
+    color: #a0a0b0;
+    line-height: 1.45;
+    margin: 0;
+  }
+  .new-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    background: rgba(99,102,241,0.25);
+    color: #a5b4fc;
+    border-radius: 4px;
+    padding: 1px 5px;
+    margin-left: 6px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .note {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 20px;
+    text-align: center;
+    font-style: italic;
+  }
+  .docs-section {
+    max-width: 860px;
+    margin: 24px auto 0;
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 20px 24px;
+    color: #1e293b;
+    font-family: monospace;
+  }
+  .docs-section h3 { font-size: 13px; font-weight: 700; margin: 0 0 12px; color: #0f172a; text-transform: uppercase; letter-spacing: 0.05em; }
+  .docs-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .docs-list li { font-size: 12px; background: #e2e8f0; color: #334155; border-radius: 6px; padding: 4px 10px; }
+  .docs-list li.new-doc { background: #e0e7ff; color: #3730a3; font-weight: 600; }
+</style>
+
+<h2>Approach C — Homepage mockup</h2>
+<p class="subtitle">Primary 4-card grid stays unchanged. New features appear in a compact "Also included" row below.</p>
+
+<div class="site-preview">
+  <h2 class="features__heading">Features</h2>
+
+  <!-- Primary 4-card grid — unchanged -->
+  <div class="features__grid">
+    <div class="features__card">
+      <div class="features__icon">⊕</div>
+      <div class="features__title">Custom Widget Redirects</div>
+      <p class="features__desc">Overlay popup with redirect buttons. Customize colors, fonts, and layout. Control display frequency, geo targeting by country or continent, and advanced JS-based display rules.</p>
+    </div>
+    <div class="features__card">
+      <div class="features__icon">→</div>
+      <div class="features__title">Custom Auto Redirects</div>
+      <p class="features__desc">Automatic URL redirects with no popup shown. Configure custom destinations, redirect frequency, geo targeting, UTM parameters, and Google Analytics event tracking.</p>
+    </div>
+    <div class="features__card">
+      <div class="features__icon">◫</div>
+      <div class="features__title">Markets Widget Redirects</div>
+      <p class="features__desc">Overlay popup powered by Shopify Markets. Syncs markets data automatically. Full appearance customization, geo targeting, and advanced display rules for widgets and items.</p>
+    </div>
+    <div class="features__card">
+      <div class="features__icon">⇄</div>
+      <div class="features__title">Markets Auto Redirects</div>
+      <p class="features__desc">Automatic URL redirects powered by Shopify Markets. Syncs markets data, geo-based targeting with country skip options, UTM parameters, and Google Analytics event tracking.</p>
+    </div>
+  </div>
+
+  <!-- NEW: secondary "Also included" row -->
+  <div class="features__also">
+    <div class="features__also-label">Also included</div>
+    <div class="features__also-grid">
+      <div class="features__also-item new">
+        <div class="features__also-title">Inline Widget <span class="new-badge">New</span></div>
+        <p class="features__also-desc">Embed a country selector directly in your theme layout — no popup required.</p>
+      </div>
+      <div class="features__also-item new">
+        <div class="features__also-title">Markets Inline Widget <span class="new-badge">New</span></div>
+        <p class="features__also-desc">Same inline embed powered by Shopify Markets for market, language &amp; currency.</p>
+      </div>
+      <div class="features__also-item">
+        <div class="features__also-title">Geo Simulator</div>
+        <p class="features__also-desc">Test redirects by simulating visits from any country — no VPN needed.</p>
+      </div>
+      <div class="features__also-item">
+        <div class="features__also-title">Analytics</div>
+        <p class="features__also-desc">Track redirect performance with built-in charts and Google Analytics events.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="docs-section">
+  <h3>Docs — pages to add</h3>
+  <ul class="docs-list">
+    <li>getting-started.md</li>
+    <li>theme-embed.md</li>
+    <li>custom-widget.md</li>
+    <li>custom-auto.md</li>
+    <li>markets-widget.md</li>
+    <li>markets-auto.md</li>
+    <li>geo-targeting.md</li>
+    <li>display-settings.md</li>
+    <li>utm-tracking.md</li>
+    <li>plans.md</li>
+    <li>faq.md</li>
+    <li>dev-custom-widget.md</li>
+    <li>dev-custom-auto.md</li>
+    <li>dev-markets-widget.md</li>
+    <li>dev-markets-auto.md</li>
+    <li class="new-doc">+ inline-widget.md</li>
+    <li class="new-doc">+ markets-inline-widget.md</li>
+    <li class="new-doc">+ analytics.md</li>
+    <li class="new-doc">+ geo-simulator.md</li>
+  </ul>
+</div>
+
+<p class="note">Does the secondary row layout feel right? Or should the new items use a different style / placement?</p>

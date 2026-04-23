@@ -7,9 +7,9 @@ layout: docs
 
 Track redirect performance with UTM parameters and Google Analytics integration.
 
-## UTM Parameters (Basic+)
+## UTM Parameters (Pro)
 
-**Basic plan and above.** Append UTM parameters to redirect URLs so you can track redirected traffic in Google Analytics or any analytics tool.
+**Pro plan only.** Append UTM parameters to redirect URLs so you can track redirected traffic in Google Analytics or any analytics tool.
 
 Configure these values in **Geolocation Flow Dashboard → Settings**:
 
@@ -21,22 +21,22 @@ Configure these values in **Geolocation Flow Dashboard → Settings**:
 
 When set, these parameters are automatically appended to all redirect URLs (e.g., `https://ca.store.com?utm_source=geo&utm_medium=popup`).
 
-## Google Analytics Event (Basic+)
+## Google Analytics Event (Pro)
 
-**Basic plan and above.** Geolocation Flow fires a custom Google Analytics event when a visitor clicks a redirect button or is auto-redirected.
+**Pro plan only.** Geolocation Flow fires a custom Google Analytics event when a visitor clicks a redirect button or is auto-redirected.
 
 - **Default event name:** `geo_redirect_click`
 - Customize the event name in your settings to match your GA4 event naming conventions
 
 The event is sent via `gtag()` if Google Analytics is installed on your store.
 
-## URL Query Forwarding (Basic+)
+## URL Query Forwarding (Pro)
 
-**Basic plan and above.** When enabled, the current page's URL query parameters are forwarded to the redirect destination. This preserves tracking codes, referral parameters, and other query strings across the redirect.
+**Pro plan only.** When enabled, the current page's URL query parameters are forwarded to the redirect destination. This preserves tracking codes, referral parameters, and other query strings across the redirect.
 
-## Global Domain Redirection (Basic+)
+## Global Domain Redirection (Pro)
 
-**Basic plan and above.** When enabled, redirects preserve the current page path when switching domains. For example, a visitor on `us.store.com/products/shirt` would be redirected to `ca.store.com/products/shirt` instead of just `ca.store.com`.
+**Pro plan only.** When enabled, redirects preserve the current page path when switching domains. For example, a visitor on `us.store.com/products/shirt` would be redirected to `ca.store.com/products/shirt` instead of just `ca.store.com`.
 
 ## Safety Parameters
 

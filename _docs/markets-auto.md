@@ -43,9 +43,9 @@ Bots and crawlers are automatically excluded from redirects using a customizable
 bot|adsbot|googlebot|crawler|spider|robot|crawling|slurp
 ```
 
-### Redirect Delay (Basic+)
+### Redirect Delay (Pro)
 
-**Basic plan and above.** Set a delay in seconds before the redirect fires.
+**Pro plan only.** Set a delay in seconds before the redirect fires.
 
 ### Page Targeting (Pro)
 
@@ -55,9 +55,9 @@ bot|adsbot|googlebot|crawler|spider|robot|crawling|slurp
 - **Skip mode** — redirect everywhere *except* selected templates
 - Available templates: index, product, collection, page, blog, article, cart, 404, search, account pages
 
-### UTM Tracking (Basic+)
+### UTM Tracking (Pro)
 
-**Basic plan and above.** Append UTM parameters (`utm_source`, `utm_medium`, `utm_campaign`) and set a custom GA event name. See [UTM & Tracking]({{ '/docs/utm-tracking/' | relative_url }}) for details.
+**Pro plan only.** Append UTM parameters (`utm_source`, `utm_medium`, `utm_campaign`) and set a custom GA event name. See [UTM & Tracking]({{ '/docs/utm-tracking/' | relative_url }}) for details.
 
 ## Related Docs
 

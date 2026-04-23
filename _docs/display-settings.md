@@ -7,9 +7,9 @@ layout: docs
 
 Display settings control how often the widget is shown, when it appears, and on which pages.
 
-## Display Frequency (Basic+)
+## Display Frequency (Pro)
 
-**Basic plan and above.** Choose how often the widget is shown to returning visitors:
+**Pro plan only.** Choose how often the widget is shown to returning visitors:
 
 | Option | Behavior |
 |---|---|
@@ -19,7 +19,7 @@ Display settings control how often the widget is shown, when it appears, and on 
 
 ## Widget Display Delay
 
-**Basic plan and above.** Set a delay (in seconds) before the widget appears after the page loads. Set to `0` for instant display.
+**Pro plan only.** Set a delay (in seconds) before the widget appears after the page loads. Set to `0` for instant display.
 
 This is useful when you want visitors to see the page content before the redirect widget appears.
 
@@ -56,7 +56,7 @@ In addition to template targeting, you can add specific **custom URLs** to fine-
 
 ## SEO Link Attributes
 
-**Basic plan and above.** Set a custom `rel` attribute on redirect links (e.g., `nofollow`, `sponsored`). This tells search engines how to treat your redirect links.
+**Pro plan only.** Set a custom `rel` attribute on redirect links (e.g., `nofollow`, `sponsored`). This tells search engines how to treat your redirect links.
 
 ## Default Settings
 

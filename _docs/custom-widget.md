@@ -27,7 +27,7 @@ The redirect list is where you manage all your widget redirect buttons.
 - **Delete** — remove redirects you no longer need
 - **Status** — toggle redirects between Active and Draft
 
-> **Free plan:** Up to 1 redirect button. **Basic plan:** Up to 4. **Pro plan:** Unlimited.
+> **Free plan:** Up to 1 redirect button. **Pro plan:** Unlimited.
 
 ### Conditional Button Visibility (Pro)
 
@@ -46,14 +46,14 @@ The Customize section controls the visual appearance of your widget.
 Choose how the widget appears:
 
 - **Popup** — a modal overlay in the center of the screen
-- **Top Bar** — a slim banner at the top of the page (can be sticky). **Basic plan and above.**
-- **Select** — a compact select widget. **Basic plan and above.**
+- **Top Bar** — a slim banner at the top of the page (can be sticky). **Pro plan only.**
+- **Select** — a compact select widget. **Pro plan only.**
 
 ![The three widget types — popup, top bar, and select]({{ '/assets/docs/widget-types.png' | relative_url }})
 
 ### Templates
 
-**Basic plan and above.** Pick from 6 built-in templates (Default, Modern, Minimal, Rounded, Glass, Dark) that control the overall widget style. The **Default** template supports full customization through the dashboard style settings (colors, fonts, etc.). Other built-in templates use fixed styles — to modify them, upgrade to the **Pro plan** and use the custom CSS code editor.
+**Pro plan only.** Pick from 6 built-in templates (Default, Modern, Minimal, Rounded, Glass, Dark) that control the overall widget style. The **Default** template supports full customization through the dashboard style settings (colors, fonts, etc.). Other built-in templates use fixed styles — to modify them, use the custom CSS code editor.
 
 ![Template picker showing Default, Modern, Minimal, Rounded, Glass, and Dark options]({{ '/assets/docs/template-picker.png' | relative_url }})
 
@@ -89,9 +89,9 @@ Button hover colors are automatically derived by swapping the button background 
 - Set a custom **popup title** and **body text** (body text supports rich text/HTML)
 - Add **per-language translations** so the widget displays in the visitor's language
 
-### Multi-Language Support (Basic+)
+### Multi-Language Support (Pro)
 
-**Basic plan and above.** Add locale-specific translations for the title, body text, and button labels. The widget automatically shows the correct translation based on the store's active language.
+**Pro plan only.** Add locale-specific translations for the title, body text, and button labels. The widget automatically shows the correct translation based on the store's active language.
 
 ## Content & Style Section
 
