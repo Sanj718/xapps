@@ -953,6 +953,53 @@ html[data-theme="night"] .brands__item:hover img {
   line-height: 1.5;
 }
 
+.features__also {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.features__also-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.features__also-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.features__also-item {
+  background: rgba(128, 128, 128, 0.05);
+  border: 1px solid rgba(128, 128, 128, 0.12);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+.features__also-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.features__also-desc {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  line-height: 1.45;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .features__also-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 /* Reviews */
 .reviews {
   max-width: 1024px;
@@ -1069,9 +1116,11 @@ scroll-carousel {
 
 .pricing__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   align-items: stretch;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .pricing__card {
