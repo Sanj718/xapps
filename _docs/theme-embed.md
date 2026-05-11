@@ -24,7 +24,7 @@ Geolocation Flow uses Shopify's theme app embed system to inject redirect script
 4. Find the Geolocation Flow embed you need and toggle it **on**
 5. Click **Save**
 
-![Theme editor App embeds panel showing xapps toggles]({{ '/assets/docs/theme-editor-app-embeds.png' | relative_url }})
+![Theme editor App embeds panel showing Geolocation Flow toggles]({{ '/assets/docs/theme-editor-app-embeds.png' | relative_url }})
 
 > **Tip:** You can also open the theme editor directly from your Geolocation Flow dashboard — each redirect type card on the home page includes an **Activate in theme** link.
 

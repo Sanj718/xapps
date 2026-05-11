@@ -15,7 +15,7 @@ The inline widget is added as an app block in the Shopify theme editor:
 
 1. Go to **Online Store → Themes → Customize**
 2. Navigate to the section or template where you want the dropdown to appear
-3. Click **Add block** and select **Geolocation Flow — Inline Dropdown**
+3. Click **Add block** and select **Custom Inline Dropdown**
 4. Save the theme
 
 The dropdown renders inline wherever you place the block — typically in the header, footer, or a dedicated section.

@@ -54,7 +54,7 @@ You can disable these parameters in settings if they interfere with your URL str
 | Parameter | Purpose |
 |---|---|
 | `?xgeo-sim=1` | Activates the Geo Simulator overlay for testing |
-| `?xgeo-off` | Disables all xapps redirects for 7 days (sets a cookie) |
+| `?xgeo-off` | Disables all redirects for 7 days (sets a cookie) |
 | `?xgeo-reset` | Re-enables redirects (removes the `xgeo-off` cookie) |
 
 ## Related Docs

@@ -34,7 +34,7 @@ This is a known limitation of geolocation detection and cannot be resolved by th
 
 **Visitors are stuck in an infinite redirect loop.**
 
-1. **Check safety parameters** — xapps adds `?xgwr=1` (widget) or `?xgar=1` (auto) to redirect URLs to prevent loops. If you disabled these in settings, re-enable them.
+1. **Check safety parameters** — Geolocation Flow adds `?xgwr=1` (widget) or `?xgar=1` (auto) to redirect URLs to prevent loops. If you disabled these in settings, re-enable them.
 2. **Check circular rules** — make sure Store A doesn't redirect to Store B while Store B redirects back to Store A for the same visitor location.
 3. **Use `?xgeo-off`** — append `?xgeo-off` to your store URL to disable all redirects for 7 days (useful for accessing a store caught in a loop). Use `?xgeo-reset` to re-enable.
 4. **Check domain redirection** — if using global domain redirection, ensure the destination domain doesn't have its own redirect back.
