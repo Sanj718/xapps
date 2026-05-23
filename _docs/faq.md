@@ -87,6 +87,25 @@ See [Display Settings]({{ '/docs/display-settings/' | relative_url }}) for detai
 2. **Draft theme** — enable the embed on a draft/unpublished theme and test there
 3. **Dev mode** — append `?xgeo-off` to disable all redirects for 7 days; use `?xgeo-reset` to re-enable
 
+## Can I Redirect Visitors to the Same Page at My Other Store?
+
+Yes. Use a Custom Auto Redirect rule with domain redirection enabled. The visitor lands on the same page path at the destination domain automatically — no separate rule per collection needed.
+
+Example: a US visitor on `eustore.com/collections/artist-1` gets redirected to `usstore.com/collections/artist-1`.
+
+Setup:
+1. Go to Custom Auto Redirects in the app dashboard.
+2. Add a rule targeting visitors Inside the target country (e.g. United States).
+3. Set the destination to the root of your other store (e.g. `https://usstore.com`).
+4. Enable "Domain Redirection" on the rule — this makes visitors land on the matching page path.
+5. Set Status to Active and save.
+
+You can create one rule per country and domain redirection handles all collection and product pages automatically. To restrict a rule to specific collections only, use page targeting (Pro plan) to trigger the rule only on the relevant URLs.
+
+## Can I Move My Setup to a New Shopify Store?
+
+App settings and redirects are tied to your Shopify store and cannot be transferred automatically. To use Geolocation Flow on a new store, install the app on the new store and recreate your redirect rules there. Contact support if you need help.
+
 ## General Questions
 
 ### Does Geolocation Flow slow down my store?
