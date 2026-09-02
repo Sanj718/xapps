@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet" onerror="this.remove()">
+  <link rel="apple-touch-icon" sizes="57x57" href="{{ '/assets/apple-icon-57x57.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="60x60" href="{{ '/assets/apple-icon-60x60.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="72x72" href="{{ '/assets/apple-icon-72x72.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ '/assets/apple-icon-76x76.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="114x114" href="{{ '/assets/apple-icon-114x114.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="120x120" href="{{ '/assets/apple-icon-120x120.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="144x144" href="{{ '/assets/apple-icon-144x144.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="152x152" href="{{ '/assets/apple-icon-152x152.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/apple-icon-180x180.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/android-icon-192x192.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon-32x32.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="96x96" href="{{ '/assets/favicon-96x96.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/favicon-16x16.png' | relative_url }}">
+  <link rel="manifest" href="{{ '/assets/manifest.json' | relative_url }}">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="{{ '/assets/ms-icon-144x144.png' | relative_url }}">
+  <meta name="theme-color" content="#ffffff">
+  {% seo %}
+  {% if site.google_analytics %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.google_analytics }}');
+  </script>
+  {% endif %}
+  <script>
+    (function(){var t=localStorage.getItem('theme');if(t==='night')document.documentElement.setAttribute('data-theme','night');})();
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  {% include header.html %}
+
+  <div class="docs-search-bar">
+    <div id="docs-search"></div>
+  </div>
+
+  {% assign cat_icons = "Getting Started:rocket,Rules:list-checks,Conditions:filter,Plans:credit-card,FAQ:help-circle,Developers:code-xml" | split: "," %}
+  <main class="docs-layout">
+    <aside class="docs-sidebar">
+      <details class="docs-sidebar__mobile-toggle">
+        <summary>Menu</summary>
+        <nav class="docs-sidebar__nav docs-sidebar__nav--mobile">
+          {% assign sorted_docs = site.sc_docs | sort: "order" %}
+          {% assign categories = sorted_docs | map: "category" | uniq %}
+          {% for cat in categories %}
+          <div class="docs-sidebar__group">
+            <span class="docs-sidebar__category">{% for ci in cat_icons %}{% assign pair = ci | split: ":" %}{% if pair[0] == cat %}<i data-lucide="{{ pair[1] }}" class="docs-sidebar__icon"></i>{% endif %}{% endfor %} {{ cat }}</span>
+            <ul>
+              {% for doc in sorted_docs %}
+                {% if doc.category == cat %}
+                <li><a href="{{ doc.url | relative_url }}" {% if page.url == doc.url or page.url == '/sc-docs/' and doc.slug == 'getting-started' or page.url == '/section-conditions-plus-docs.html' and doc.slug == 'getting-started' %}class="docs-sidebar__active"{% endif %}>{{ doc.title }}</a></li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
+        </nav>
+      </details>
+      <nav class="docs-sidebar__nav docs-sidebar__nav--desktop">
+        {% for cat in categories %}
+        <div class="docs-sidebar__group">
+          <span class="docs-sidebar__category">{% for ci in cat_icons %}{% assign pair = ci | split: ":" %}{% if pair[0] == cat %}<i data-lucide="{{ pair[1] }}" class="docs-sidebar__icon"></i>{% endif %}{% endfor %} {{ cat }}</span>
+          <ul>
+            {% for doc in sorted_docs %}
+              {% if doc.category == cat %}
+              <li><a href="{{ doc.url | relative_url }}" {% if page.url == doc.url or page.url == '/sc-docs/' and doc.slug == 'getting-started' or page.url == '/section-conditions-plus-docs.html' and doc.slug == 'getting-started' %}class="docs-sidebar__active"{% endif %}>{{ doc.title }}</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+      </nav>
+    </aside>
+
+    <article class="docs-content" data-pagefind-body>
+      <div class="docs-content__header">
+        <h1>{% if page.icon %}<i data-lucide="{{ page.icon }}" class="docs-content__title-icon"></i> {% endif %}{{ page.title }}</h1>
+      </div>
+      {{ content }}
+    </article>
+  </main>
+
+  <script src="{{ '/js/theme.js' | relative_url }}"></script>
+  <script>
+    (function() {
+      var s = document.createElement('script');
+      s.src = '/pagefind/pagefind-ui.js';
+      s.onload = function() {
+        new PagefindUI({
+          element: '#docs-search',
+          showSubResults: false,
+          showImages: false,
+          resetStyles: false,
+          excerptLength: 12
+        });
+      };
+      document.head.appendChild(s);
+    })();
+  </script>
+  <script>
+  (function(){
+    document.querySelectorAll('.docs-content pre').forEach(function(pre){
+      var btn=document.createElement('button');
+      btn.className='copy-btn';
+      btn.setAttribute('aria-label','Copy to clipboard');
+      btn.innerHTML='<i data-lucide="copy"></i>';
+      btn.addEventListener('click',function(){
+        var code=pre.querySelector('code');
+        var text=code?code.textContent:pre.textContent;
+        navigator.clipboard.writeText(text).then(function(){
+          btn.innerHTML='<i data-lucide="check"></i>';
+          lucide.createIcons({nodes:[btn]});
+          setTimeout(function(){
+            btn.innerHTML='<i data-lucide="copy"></i>';
+            lucide.createIcons({nodes:[btn]});
+          },1500);
+        });
+      });
+      pre.appendChild(btn);
+    });
+    // Anchor links on headings
+    document.querySelectorAll('.docs-content h2[id], .docs-content h3[id], .docs-content h4[id]').forEach(function(heading){
+      var a=document.createElement('a');
+      a.className='heading-anchor';
+      a.href='#'+heading.id;
+      a.setAttribute('aria-label','Link to '+heading.textContent);
+      a.textContent='#';
+      heading.appendChild(a);
+    });
+    lucide.createIcons();
+  })();
+  </script>
+</body>
+</html>

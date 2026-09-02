@@ -16,3 +16,6 @@ collections:
   docs:
     output: true
     permalink: /docs/:path/
+  sc_docs:
+    output: true
+    permalink: /sc-docs/:path/

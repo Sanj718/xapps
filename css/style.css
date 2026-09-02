@@ -713,6 +713,12 @@ html[data-theme="night"] .docs-content pre {
   white-space: normal;
 }
 
+.docs-content td:nth-child(2),
+.docs-content th:nth-child(2) {
+  white-space: normal;
+  width: 26%;
+}
+
 .docs-content th {
   font-weight: 600;
   color: var(--color-text);

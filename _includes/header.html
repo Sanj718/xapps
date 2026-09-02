@@ -1,5 +1,9 @@
 <header>
+  {% if page.url contains 'section-conditions-plus' or page.url contains 'sc-docs' %}
+  <a href="{{ '/section-conditions-plus.html' | relative_url }}" class="logo"
+  {% else %}
   <a href="{{ '/' | relative_url }}" class="logo"
+  {% endif %}
     ><img
       src="{{ '/assets/logo.svg' | relative_url }}"
       alt="x apps"
@@ -11,7 +15,11 @@
   >
   <div class="header-right">
     <nav>
+      {% if page.url contains 'section-conditions-plus' or page.url contains 'sc-docs' %}
+      <a href="{{ '/section-conditions-plus-docs.html' | relative_url }}">docs</a>
+      {% else %}
       <a href="{{ '/docs.html' | relative_url }}">docs</a>
+      {% endif %}
       <a href="{{ '/contact.html' | relative_url }}">contact</a>
     </nav>
     <span class="nav-sep">⁕</span>
