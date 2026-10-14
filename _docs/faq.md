@@ -116,6 +116,10 @@ No. The redirect scripts are lightweight and load asynchronously. Widget embeds 
 
 All countries recognized by the ISO 3166-1 standard — over 240 countries and territories. You can also target by continent (7 continents available).
 
+### Is there a free trial?
+
+Yes. Pro includes a 7-day free trial for new subscribers. You are not charged until it ends, and you can cancel before then by choosing the Free plan on the Plans page. The trial is offered once per store. On a Shopify development store, Pro is free. See [Plans Comparison]({{ '/docs/plans/' | relative_url }}).
+
 ### Can I use Custom Redirects and Markets Redirects together?
 
 Yes. They operate independently. You can enable different embeds for each type. However, be careful not to create conflicting rules that redirect the same visitor in different directions.

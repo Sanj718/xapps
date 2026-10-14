@@ -57,7 +57,7 @@ Geolocation Flow offers two plans:
 
 See the full [Plans Comparison]({{ '/docs/plans/' | relative_url }}) for a detailed feature breakdown.
 
-> **Developer plan:** If you're building or testing on a development store, you can request a free Dev plan with all Pro features through the in-app contact form.
+> **Free trial and development stores:** Pro starts with a 7-day free trial for new subscribers. On a Shopify development store, Pro is free: choose Pro on the Plans page and approve it.
 
 ## Next Steps
 
