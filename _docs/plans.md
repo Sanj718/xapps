@@ -12,7 +12,11 @@ Geolocation Flow offers two plans to fit stores of every size.
 | Plan | Price |
 |---|---|
 | **Free** | $0/month |
-| **Pro** | $9.99/month |
+| **Pro** | $9.99/month, with a 7-day free trial for new subscribers |
+
+## Free Trial
+
+Pro starts with a **7-day free trial**. You are not charged until the trial ends, and you can cancel any time before then by choosing the Free plan on the Plans page. The trial is offered once per store, so it does not start again if you have subscribed before.
 
 ## Feature Comparison
 
@@ -79,9 +83,9 @@ Geolocation Flow offers two plans to fit stores of every size.
 | Auto-redirect delay | — | Yes |
 | Country exclusions | — | Yes |
 
-## Developer Plan
+## Development Stores
 
-If you're building or testing on a **Shopify development store**, you can request a free **Dev plan** that includes all Pro features. Contact us through the in-app support form to request access.
+If you're building or testing on a **Shopify development store**, Pro is free. Open the Plans page in the app, choose Pro and approve it on Shopify's plan page. No charge applies, and you get all Pro features. This is only for development stores, not production stores.
 
 ## Choosing the Right Plan
 

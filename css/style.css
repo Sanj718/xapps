@@ -1262,6 +1262,14 @@ scroll-carousel {
   color: var(--color-muted);
 }
 
+/* "7-day free trial" line under the Pro price; sits closer to the price than the default gap. */
+.pricing__price + .pricing__trial {
+  margin-top: -1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
 .pricing__features {
   list-style: none;
   margin-bottom: 0.5rem;
